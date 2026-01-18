@@ -3,6 +3,14 @@ import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState("Services");
+
+  const navLinkClass = (tab) =>
+    `relative cursor-pointer transition text-gray-700 hover:text-black
+     after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full
+     after:bg-blue-400 after:scale-x-0 after:origin-left after:transition-transform
+     hover:after:scale-x-100
+     ${activeTab === tab ? "after:scale-x-100 text-black" : ""}`;
 
   return (
     <header className="w-full bg-white border-b border-gray-100 sticky top-0 z-50">
@@ -20,11 +28,19 @@ const Navbar = () => {
           </div>
 
           {/* DESKTOP NAV */}
-          <nav className="hidden md:flex items-center gap-10 text-[15px] font-medium text-gray-700">
-            <a href="#" className="hover:text-black">Services</a>
-            <a href="/ai" className="hover:text-black">AI</a>
-            <a href="#" className="hover:text-black">Our clients</a>
-            <a href="#" className="hover:text-black">Our stack</a>
+          <nav className="hidden md:flex items-center gap-10 text-[15px] font-medium">
+            <a href="/service"><span onClick={() => setActiveTab("Services")} className={navLinkClass("Services")}>
+              Services
+            </span></a>
+            <a href="/ai"><span onClick={() => setActiveTab("AI")} className={navLinkClass("AI")}>
+              AI
+            </span></a>
+            <a href="/clients"><span onClick={() => setActiveTab("Clients")} className={navLinkClass("Clients")}>
+              Our clients
+            </span></a>
+            <a href="/stat"><span onClick={() => setActiveTab("Stack")} className={navLinkClass("Stack")}>
+              Our stack
+            </span></a>
           </nav>
 
           {/* DESKTOP RIGHT */}
@@ -43,7 +59,7 @@ const Navbar = () => {
               </svg>
             </div>
 
-            <a href="#contact">
+            <a href="/schedule">
               <button className="px-5 py-2 rounded-lg bg-gray-900 text-white text-sm font-medium hover:bg-gray-800 transition">
                 Schedule a Call
               </button>
@@ -70,11 +86,19 @@ const Navbar = () => {
       {open && (
         <div className="md:hidden bg-white border-t border-gray-100 px-6 py-6 space-y-6">
 
-          <nav className="flex flex-col gap-4 text-[16px] font-medium text-gray-700">
-            <a href="#" onClick={() => setOpen(false)}>Services</a>
-            <a href="/ai" onClick={() => setOpen(false)}>AI</a>
-            <a href="#" onClick={() => setOpen(false)}>Our clients</a>
-            <a href="#" onClick={() => setOpen(false)}>Our stack</a>
+          <nav className="flex flex-col gap-4 text-[16px] font-medium">
+            {["Services", "AI", "Clients", "Stack"].map((tab) => (
+              <span
+                key={tab}
+                onClick={() => {
+                  setActiveTab(tab);
+                  setOpen(false);
+                }}
+                className={navLinkClass(tab)}
+              >
+                {tab === "Clients" ? "Our clients" : tab === "Stack" ? "Our stack" : tab}
+              </span>
+            ))}
           </nav>
 
           <div className="flex flex-col gap-4">
@@ -85,7 +109,7 @@ const Navbar = () => {
             </a>
 
             <a href="/job">
-              <button className="w-full px-5 py-3 rounded-lg bg-blue-400 text-black text-sm font-semibold">
+              <button className="w-full px-5 py-3 rounded-lg bg-blue-400 text-white text-sm font-semibold">
                 Join the team
               </button>
             </a>

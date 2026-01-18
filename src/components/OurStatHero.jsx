@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ServicesHero = () => {
+const StatHero = () => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -96,23 +96,23 @@ const ServicesHero = () => {
           {/* LEFT CONTENT */}
           <div>
             <p className="hero-badge text-lg text-gray-800 mb-6">
-              Our Expertise.{" "}
-              <span className="font-semibold">Your Advantage.</span>
+              Platform Insights.{" "}
+              <span className="font-semibold">Real Impact.</span>
             </p>
 
             <h1 className="hero-title text-[44px] leading-[1.15] md:text-[56px] font-extrabold text-gray-800 mb-6">
-              End-to-End Software <br />
-              Services to Power <br />
-              Your Business.
+              Numbers That Tell <br />
+              The Story of <br />
+              Our Growth.
             </h1>
 
             <p className="hero-desc text-lg text-gray-500 max-w-xl mb-10">
-              From strategy and design to development and scaling, we deliver
-              high-impact digital solutions tailored to your goals.
+              From active users to transactions processed, our platform delivers
+              measurable results powered by real-time, reliable data.
             </p>
 
             <button className="hero-btn bg-blue-400 hover:bg-[#bce600] text-black font-semibold px-8 py-4 rounded-lg transition">
-              Explore our services
+              View platform stats
             </button>
           </div>
 
@@ -124,7 +124,7 @@ const ServicesHero = () => {
             <div className="hero-image bg-white rounded-[32px] shadow-xl overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=900&auto=format&fit=crop&q=60"
-                alt="Software services"
+                alt="Platform statistics and analytics"
                 className="w-[420px] h-[480px] object-cover"
               />
             </div>
@@ -136,4 +136,4 @@ const ServicesHero = () => {
   );
 };
 
-export default ServicesHero;
+export default StatHero;

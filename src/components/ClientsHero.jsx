@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ServicesHero = () => {
+const ClientsHero = () => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -96,23 +96,23 @@ const ServicesHero = () => {
           {/* LEFT CONTENT */}
           <div>
             <p className="hero-badge text-lg text-gray-800 mb-6">
-              Our Expertise.{" "}
-              <span className="font-semibold">Your Advantage.</span>
+              Trusted Partnerships.{" "}
+              <span className="font-semibold">Proven Results.</span>
             </p>
 
             <h1 className="hero-title text-[44px] leading-[1.15] md:text-[56px] font-extrabold text-gray-800 mb-6">
-              End-to-End Software <br />
-              Services to Power <br />
-              Your Business.
+              We Partner with <br />
+              Companies That <br />
+              Build the Future.
             </h1>
 
             <p className="hero-desc text-lg text-gray-500 max-w-xl mb-10">
-              From strategy and design to development and scaling, we deliver
-              high-impact digital solutions tailored to your goals.
+              From startups to global enterprises, our clients trust us to
+              deliver scalable, secure, and high-performing digital solutions.
             </p>
 
             <button className="hero-btn bg-blue-400 hover:bg-[#bce600] text-black font-semibold px-8 py-4 rounded-lg transition">
-              Explore our services
+              View our success stories
             </button>
           </div>
 
@@ -123,8 +123,8 @@ const ServicesHero = () => {
 
             <div className="hero-image bg-white rounded-[32px] shadow-xl overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=900&auto=format&fit=crop&q=60"
-                alt="Software services"
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&auto=format&fit=crop&q=60"
+                alt="Happy clients collaboration"
                 className="w-[420px] h-[480px] object-cover"
               />
             </div>
@@ -136,4 +136,4 @@ const ServicesHero = () => {
   );
 };
 
-export default ServicesHero;
+export default ClientsHero;

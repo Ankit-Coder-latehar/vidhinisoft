@@ -52,28 +52,39 @@ const ContactForm = () => {
         </div>
 
         {/* RIGHT FORM */}
-        <form className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-          
+        <form
+          action="https://formspree.io/f/mwvvlzdv"
+          method="POST"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-8"
+        >
+          {/* Required for Formsfree */}
+          <input type="hidden" name="_captcha" value="false" />
+          <input
+            type="hidden"
+            name="_redirect"
+            value="https://yourwebsite.com/thank-you"
+          />
+
           {/* Name */}
           <div>
-            <label className="block text-sm text-gray-600 mb-2">
-              Name:
-            </label>
+            <label className="block text-sm text-gray-600 mb-2">Name:</label>
             <input
               type="text"
+              name="name"
               placeholder="Name*"
+              required
               className="w-full bg-gray-100 rounded-lg px-4 py-4 outline-none focus:ring-2 focus:ring-lime-300"
             />
           </div>
 
           {/* Email */}
           <div>
-            <label className="block text-sm text-gray-600 mb-2">
-              Email:
-            </label>
+            <label className="block text-sm text-gray-600 mb-2">Email:</label>
             <input
               type="email"
+              name="email"
               placeholder="Email*"
+              required
               className="w-full bg-gray-100 rounded-lg px-4 py-4 outline-none focus:ring-2 focus:ring-lime-300"
             />
           </div>
@@ -85,6 +96,7 @@ const ContactForm = () => {
             </label>
             <input
               type="text"
+              name="company"
               placeholder="Company name*"
               className="w-full bg-gray-100 rounded-lg px-4 py-4 outline-none focus:ring-2 focus:ring-lime-300"
             />
@@ -92,16 +104,16 @@ const ContactForm = () => {
 
           {/* Phone */}
           <div>
-            <label className="block text-sm text-gray-600 mb-2">
-              Phone:
-            </label>
+            <label className="block text-sm text-gray-600 mb-2">Phone:</label>
             <div className="flex">
               <span className="flex items-center px-4 bg-gray-200 rounded-l-lg text-sm">
                 🇮🇳 +91
               </span>
               <input
                 type="tel"
+                name="phone"
                 placeholder="Phone*"
+                required
                 className="w-full bg-gray-100 rounded-r-lg px-4 py-4 outline-none focus:ring-2 focus:ring-lime-300"
               />
             </div>
@@ -110,20 +122,32 @@ const ContactForm = () => {
           {/* Goal */}
           <div>
             <label className="block text-sm text-gray-600 mb-2">
-              What is your goal in contacting us?:
+              What is your goal in contacting us?
             </label>
-            <select className="w-full bg-gray-100 rounded-lg px-4 py-4 outline-none">
-              <option>Select an option</option>
+            <select
+              name="goal"
+              className="w-full bg-gray-100 rounded-lg px-4 py-4 outline-none"
+            >
+              <option value="">Select an option</option>
+              <option value="Hire IT Talent">Hire IT Talent</option>
+              <option value="Project Collaboration">Project Collaboration</option>
+              <option value="General Inquiry">General Inquiry</option>
             </select>
           </div>
 
           {/* Positions */}
           <div>
             <label className="block text-sm text-gray-600 mb-2">
-              How many positions do you need to fill?:
+              How many positions do you need to fill?
             </label>
-            <select className="w-full bg-gray-100 rounded-lg px-4 py-4 outline-none">
-              <option>Select an option</option>
+            <select
+              name="positions"
+              className="w-full bg-gray-100 rounded-lg px-4 py-4 outline-none"
+            >
+              <option value="">Select an option</option>
+              <option value="1-3">1–3</option>
+              <option value="4-10">4–10</option>
+              <option value="10+">10+</option>
             </select>
           </div>
 
@@ -132,18 +156,30 @@ const ContactForm = () => {
             <label className="block text-sm text-gray-600 mb-2">
               Position in the company:
             </label>
-            <select className="w-full bg-gray-100 rounded-lg px-4 py-4 outline-none">
-              <option>Select an option</option>
+            <select
+              name="role"
+              className="w-full bg-gray-100 rounded-lg px-4 py-4 outline-none"
+            >
+              <option value="">Select an option</option>
+              <option value="Founder">Founder</option>
+              <option value="CTO">CTO</option>
+              <option value="HR">HR</option>
+              <option value="Manager">Manager</option>
             </select>
           </div>
 
           {/* Hiring */}
           <div>
             <label className="block text-sm text-gray-600 mb-2">
-              Are you looking to hire IT talent in the next 3 months?:
+              Are you looking to hire IT talent in the next 3 months?
             </label>
-            <select className="w-full bg-gray-100 rounded-lg px-4 py-4 outline-none">
-              <option>Select an option</option>
+            <select
+              name="hiring"
+              className="w-full bg-gray-100 rounded-lg px-4 py-4 outline-none"
+            >
+              <option value="">Select an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
             </select>
           </div>
 
@@ -156,7 +192,6 @@ const ContactForm = () => {
               Submit Request
             </button>
           </div>
-
         </form>
       </div>
     </section>
