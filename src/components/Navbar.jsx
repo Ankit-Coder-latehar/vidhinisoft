@@ -3,7 +3,7 @@ import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("Services");
+  const [activeTab, setActiveTab] = useState("Home");
 
   const navLinkClass = (tab) =>
     `relative cursor-pointer transition text-gray-700 hover:text-black
@@ -17,10 +17,14 @@ const Navbar = () => {
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-[72px]">
 
-          {/* LEFT: Logo */}
+          {/* LOGO */}
           <div className="flex items-center gap-2">
             <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center">
-              <img src="/v.png" alt="logo" className="h-full w-full object-contain" />
+              <img
+                src="/v.png"
+                alt="logo"
+                className="h-full w-full object-contain"
+              />
             </div>
             <span className="text-lg sm:text-xl font-semibold text-gray-900">
               Vadhini Soft
@@ -29,21 +33,50 @@ const Navbar = () => {
 
           {/* DESKTOP NAV */}
           <nav className="hidden md:flex items-center gap-10 text-[15px] font-medium">
-            <a href="/"><span onClick={() => setActiveTab("Services")} className={navLinkClass("Services")}>
-              Home
-            </span></a>
-            <a href="/service"><span onClick={() => setActiveTab("Services")} className={navLinkClass("Services")}>
-              Services
-            </span></a>
-            <a href="/ai"><span onClick={() => setActiveTab("AI")} className={navLinkClass("AI")}>
-              AI
-            </span></a>
-            <a href="/clients"><span onClick={() => setActiveTab("Clients")} className={navLinkClass("Clients")}>
-              Our clients
-            </span></a>
-            <a href="/stat"><span onClick={() => setActiveTab("Stack")} className={navLinkClass("Stack")}>
-              Our stack
-            </span></a>
+            <a href="/">
+              <span
+                onClick={() => setActiveTab("Home")}
+                className={navLinkClass("Home")}
+              >
+                Home
+              </span>
+            </a>
+
+            <a href="/service">
+              <span
+                onClick={() => setActiveTab("Services")}
+                className={navLinkClass("Services")}
+              >
+                Services
+              </span>
+            </a>
+
+            <a href="/ai">
+              <span
+                onClick={() => setActiveTab("AI")}
+                className={navLinkClass("AI")}
+              >
+                AI
+              </span>
+            </a>
+
+            <a href="/clients">
+              <span
+                onClick={() => setActiveTab("Clients")}
+                className={navLinkClass("Clients")}
+              >
+                Our clients
+              </span>
+            </a>
+
+            <a href="/stat">
+              <span
+                onClick={() => setActiveTab("Stack")}
+                className={navLinkClass("Stack")}
+              >
+                Our stack
+              </span>
+            </a>
           </nav>
 
           {/* DESKTOP RIGHT */}
@@ -90,29 +123,76 @@ const Navbar = () => {
         <div className="md:hidden bg-white border-t border-gray-100 px-6 py-6 space-y-6">
 
           <nav className="flex flex-col gap-4 text-[16px] font-medium">
-            {["Services", "AI", "Clients", "Stack"].map((tab) => (
+            <a href="/">
               <span
-                key={tab}
                 onClick={() => {
-                  setActiveTab(tab);
+                  setActiveTab("Home");
                   setOpen(false);
                 }}
-                className={navLinkClass(tab)}
+                className={navLinkClass("Home")}
               >
-                {tab === "Clients" ? "Our clients" : tab === "Stack" ? "Our stack" : tab}
+                Home
               </span>
-            ))}
+            </a>
+
+            <a href="/service">
+              <span
+                onClick={() => {
+                  setActiveTab("Services");
+                  setOpen(false);
+                }}
+                className={navLinkClass("Services")}
+              >
+                Services
+              </span>
+            </a>
+
+            <a href="/ai">
+              <span
+                onClick={() => {
+                  setActiveTab("AI");
+                  setOpen(false);
+                }}
+                className={navLinkClass("AI")}
+              >
+                AI
+              </span>
+            </a>
+
+            <a href="/clients">
+              <span
+                onClick={() => {
+                  setActiveTab("Clients");
+                  setOpen(false);
+                }}
+                className={navLinkClass("Clients")}
+              >
+                Our clients
+              </span>
+            </a>
+
+            <a href="/stat">
+              <span
+                onClick={() => {
+                  setActiveTab("Stack");
+                  setOpen(false);
+                }}
+                className={navLinkClass("Stack")}
+              >
+                Our stack
+              </span>
+            </a>
           </nav>
 
           <div className="flex flex-col gap-4">
-            <a href="#contact">
+            <a href="/schedule">
               <button className="w-full px-5 py-3 rounded-lg bg-gray-900 text-white text-sm font-medium">
                 Schedule a Call
               </button>
             </a>
 
             <a href="/job">
-              <button className="w-full px-5 py-3 rounded-lg bg-blue-400 text-white text-sm font-semibold">
+              <button className="w-full px-5 py-3 rounded-lg bg-blue-400 text-black text-sm font-semibold">
                 Join the team
               </button>
             </a>
