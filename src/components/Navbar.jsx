@@ -29,6 +29,9 @@ const Navbar = () => {
 
           {/* DESKTOP NAV */}
           <nav className="hidden md:flex items-center gap-10 text-[15px] font-medium">
+            <a href="/"><span onClick={() => setActiveTab("Services")} className={navLinkClass("Services")}>
+              Home
+            </span></a>
             <a href="/service"><span onClick={() => setActiveTab("Services")} className={navLinkClass("Services")}>
               Services
             </span></a>
