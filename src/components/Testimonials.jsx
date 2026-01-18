@@ -20,7 +20,7 @@ const testimonials = [
     name: "Edna González",
     role: "Human Capital Director",
     company: "at Definity First",
-    avatar: "https://plus.unsplash.com/premium_photo-1661585778567-bdd6f190ce27?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHByb2Zlc3Npb25hbCUyMHdvcmtpbmclMjBnaXJsJTIwaW4lMjBzb2Z0d2FyZXxlbnwwfHwwfHx8MA%3D%3D",
+    avatar: "",
   },
 ];
 
