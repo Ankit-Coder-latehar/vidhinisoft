@@ -7,6 +7,11 @@ import Services from './pages/Services'
 import Clients from './pages/Clients'
 import Stats from './pages/Stats'
 import Schedule from './pages/Schedule'
+import About from './pages/About'
+import CustomerServiceSection from './components/containers'
+import CustomersPage from './pages/Customers'
+import Product from './pages/Product'
+import Carrer from './pages/Carrer'
 
 const App = () => {
   return (
@@ -19,6 +24,14 @@ const App = () => {
         <Route path="/clients" element={<Clients />} />
         <Route path="/stat" element={<Stats />} />
         <Route path="/schedule" element={<Schedule />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/customer" element={<CustomersPage />} />
+        <Route path="/product" element={<Product />} />
+        <Route path="/career" element={<Carrer />} />
+
+
+
+
 
 
 

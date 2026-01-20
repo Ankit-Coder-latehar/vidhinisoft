@@ -40,7 +40,7 @@ const SecondFooter = () => {
         {/* Middle Section */}
         <div>
           <h4 className="text-gray-900 font-semibold mb-6">
-            About Glofy
+            About Vidhini 
           </h4>
           <ul className="space-y-4 text-gray-500">
             <li className="hover:text-gray-900 cursor-pointer">

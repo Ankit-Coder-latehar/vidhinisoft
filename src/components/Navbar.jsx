@@ -42,39 +42,47 @@ const Navbar = () => {
               </span>
             </a>
 
-            <a href="/service">
+            <a href="/about">
               <span
                 onClick={() => setActiveTab("Services")}
                 className={navLinkClass("Services")}
               >
-                Services
+                About
               </span>
             </a>
 
-            <a href="/ai">
+            <a href="/service">
               <span
                 onClick={() => setActiveTab("AI")}
                 className={navLinkClass("AI")}
               >
-                AI
+                Service
               </span>
             </a>
 
-            <a href="/clients">
+            <a href="/customer">
               <span
                 onClick={() => setActiveTab("Clients")}
                 className={navLinkClass("Clients")}
               >
-                Our clients
+                customer
               </span>
             </a>
 
-            <a href="/stat">
+            <a href="/product">
               <span
                 onClick={() => setActiveTab("Stack")}
                 className={navLinkClass("Stack")}
               >
-                Our stack
+                Products
+              </span>
+            </a>
+             <a href="/career">
+              <span
+                onClick={() => setActiveTab("Stack")}
+                className={navLinkClass("Stack")}
+              >
+                Career
               </span>
             </a>
           </nav>
@@ -135,7 +143,7 @@ const Navbar = () => {
               </span>
             </a>
 
-            <a href="/service">
+            <a href="/about">
               <span
                 onClick={() => {
                   setActiveTab("Services");
@@ -143,11 +151,11 @@ const Navbar = () => {
                 }}
                 className={navLinkClass("Services")}
               >
-                Services
+                About
               </span>
             </a>
 
-            <a href="/ai">
+            <a href="/service">
               <span
                 onClick={() => {
                   setActiveTab("AI");
@@ -155,11 +163,11 @@ const Navbar = () => {
                 }}
                 className={navLinkClass("AI")}
               >
-                AI
+               Services
               </span>
             </a>
 
-            <a href="/clients">
+            <a href="/customer">
               <span
                 onClick={() => {
                   setActiveTab("Clients");
@@ -167,11 +175,11 @@ const Navbar = () => {
                 }}
                 className={navLinkClass("Clients")}
               >
-                Our clients
+                Customers
               </span>
             </a>
 
-            <a href="/stat">
+            <a href="/career">
               <span
                 onClick={() => {
                   setActiveTab("Stack");
@@ -179,7 +187,7 @@ const Navbar = () => {
                 }}
                 className={navLinkClass("Stack")}
               >
-                Our stack
+                Career
               </span>
             </a>
           </nav>
