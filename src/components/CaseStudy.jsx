@@ -17,12 +17,12 @@ export default function CaseStudies() {
     {
       title: "SaaS Dashboard Redesign",
       description: "Enhanced user experience and increased engagement by 40%.",
-      image: "https://images.unsplash.com/photo-1581091215363-5c2b6ee6b72b?auto=format&fit=crop&w=800&q=80",
+      image: "https://cdn.prod.website-files.com/64103d21294ba09537b876c8/678e1ba93abbf74d6c950133_AD_4nXfg3YYDnCywk3mgB5J7iy5DunTGoHmDR3txHWvQV104YmMay79mQUZHxHI7DlVazelpL4twKeXZ7Nj_kEajcjh_CNHbmI2eDs6y2OXDxRMC17WvgaO3imdzC3XF2tkF1Lj7o8IlbA.png",
     },
     {
       title: "Mobile App Development",
       description: "Delivered a seamless cross-platform mobile experience.",
-      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981b?auto=format&fit=crop&w=800&q=80",
+      image: "https://www.mindinventory.com/blog/wp-content/uploads/2023/12/mobile-app-development-trends.webp",
     },
   ];
 

@@ -5,6 +5,7 @@ import StaffingSection from '../components/CompanyMarque'
 import Footer from '../components/Footer'
 import SecondFooter from '../components/SecondFooter'
 import ServicesHero from '../components/ServiceHero'
+import ServicesSection from '../components/ServicwCards'
 
 const Services = () => {
   return (
@@ -12,6 +13,7 @@ const Services = () => {
         <Navbar/>
         <ServicesHero/>
         <StaffingSection/>
+        <ServicesSection/>
         <SecondFooter/>
         <Footer/>
     </div>

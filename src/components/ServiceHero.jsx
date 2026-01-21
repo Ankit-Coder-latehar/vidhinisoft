@@ -107,8 +107,7 @@ const ServicesHero = () => {
             </h1>
 
             <p className="hero-desc text-lg text-gray-500 max-w-xl mb-10">
-              From strategy and design to development and scaling, we deliver
-              high-impact digital solutions tailored to your goals.
+             At Vardhini Software Solutions, we provide end-to-end technology services that help businesses innovate, scale, and operate efficiently. Our services are designed to support startups, growing enterprises, and established organizations with reliable, secure, and future-ready digital solutions.
             </p>
 
             <button className="hero-btn bg-blue-400 hover:bg-[#bce600] text-black font-semibold px-8 py-4 rounded-lg transition">
