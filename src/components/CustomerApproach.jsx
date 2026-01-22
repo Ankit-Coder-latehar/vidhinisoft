@@ -47,62 +47,45 @@ const steps = [
 
 export default function OurApproach() {
   const sectionRef = useRef(null);
-  const lineRef = useRef(null);
   const cardsRef = useRef([]);
-  const iconsRef = useRef([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Section intro
       gsap.from(".approach-title", {
+        y: 30,
+        opacity: 0,
+        duration: 0.6,
+        ease: "power2.out",
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 80%",
         },
-        y: 80,
-        opacity: 0,
-        duration: 1.2,
-        ease: "power4.out",
       });
 
-      // Timeline progress animation
-      gsap.fromTo(
-        lineRef.current,
-        { scaleY: 0 },
-        {
-          scaleY: 1,
-          transformOrigin: "top",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 70%",
-            end: "bottom 80%",
-            scrub: true,
-          },
-        }
-      );
+      gsap.from(".approach-subtitle", {
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+        delay: 0.1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+        },
+      });
 
-      // Cards reveal
-      cardsRef.current.forEach((card, index) => {
+      cardsRef.current.forEach((card, i) => {
         gsap.from(card, {
+          y: 30,
+          opacity: 0,
+          duration: 0.6,
+          delay: i * 0.1,
+          ease: "power2.out",
           scrollTrigger: {
             trigger: card,
             start: "top 85%",
+            once: true,
           },
-          x: index % 2 === 0 ? -120 : 120,
-          opacity: 0,
-          duration: 1,
-          ease: "power4.out",
-        });
-      });
-
-      // Floating icons
-      iconsRef.current.forEach((icon, i) => {
-        gsap.to(icon, {
-          y: 10,
-          duration: 2 + i * 0.2,
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut",
         });
       });
     }, sectionRef);
@@ -113,19 +96,22 @@ export default function OurApproach() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-32 bg-gradient-to-b from-black via-slate-900 to-slate-950 text-white overflow-hidden"
+      className="relative py-24 bg-gradient-to-b from-gray-50 via-white to-gray-100 text-gray-900 overflow-hidden"
     >
-      {/* Background Glow */}
-      <div className="absolute top-40 left-10 w-72 h-72 bg-blue-500/20 blur-3xl rounded-full animate-pulse" />
-      <div className="absolute bottom-40 right-10 w-96 h-96 bg-purple-500/20 blur-3xl rounded-full animate-pulse" />
+      {/* Sketch background */}
+      <div className="absolute inset-0 opacity-[0.06] bg-[url('https://www.transparenttextures.com/patterns/sketchy.png')]" />
+
+      {/* Soft blobs */}
+      <div className="absolute -top-24 -right-24 w-96 h-96 bg-gray-200 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 -left-24 w-80 h-80 bg-gray-300 rounded-full blur-3xl" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         {/* Heading */}
-        <div className="text-center mb-28">
-          <h2 className="approach-title text-4xl md:text-5xl font-bold mb-6">
+        <div className="text-center mb-20">
+          <h2 className="approach-title text-4xl sm:text-5xl font-bold mb-4">
             Our Approach With Customers
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+          <p className="approach-subtitle text-gray-600 max-w-2xl mx-auto text-lg">
             A proven, collaborative process that turns ideas into impactful
             digital solutions.
           </p>
@@ -133,15 +119,10 @@ export default function OurApproach() {
 
         {/* Timeline */}
         <div className="relative">
-          {/* Center Line */}
-          <div className="absolute left-1/2 top-0 w-[2px] h-full bg-white/10 -translate-x-1/2" />
-          <div
-            ref={lineRef}
-            className="absolute left-1/2 top-0 w-[2px] h-full bg-gradient-to-b from-blue-500 to-purple-500 -translate-x-1/2"
-          />
+          {/* Center line */}
+          <div className="absolute left-1/2 top-0 h-full w-px bg-gray-200 -translate-x-1/2" />
 
-          {/* Steps */}
-          <div className="space-y-24">
+          <div className="space-y-20">
             {steps.map((step, index) => {
               const Icon = step.icon;
               return (
@@ -153,28 +134,23 @@ export default function OurApproach() {
                 >
                   <div
                     ref={(el) => (cardsRef.current[index] = el)}
-                    className="w-full md:w-[46%] p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl
-                    hover:border-blue-500/40 hover:shadow-[0_0_40px_rgba(59,130,246,0.35)]
-                    transition-all duration-300"
+                    className="w-full md:w-[46%] bg-white border border-gray-200 rounded-2xl p-8
+                    shadow-sm hover:shadow-xl transition-shadow duration-300"
                   >
-                    <div
-                      ref={(el) => (iconsRef.current[index] = el)}
-                      className="mb-4 w-12 h-12 flex items-center justify-center rounded-xl
-                      bg-gradient-to-br from-blue-500 to-purple-500"
-                    >
+                    <div className="mb-4 w-12 h-12 flex items-center justify-center rounded-xl bg-gray-100 text-gray-800">
                       <Icon size={22} />
                     </div>
 
                     <h3 className="text-xl font-semibold mb-2">
                       {step.title}
                     </h3>
-                    <p className="text-gray-400 leading-relaxed">
+                    <p className="text-gray-600 leading-relaxed">
                       {step.desc}
                     </p>
                   </div>
 
                   {/* Dot */}
-                  <div className="absolute left-1/2 w-5 h-5 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 -translate-x-1/2 shadow-lg" />
+                  <div className="absolute left-1/2 w-4 h-4 rounded-full bg-gray-400 -translate-x-1/2" />
                 </div>
               );
             })}

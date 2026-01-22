@@ -123,7 +123,7 @@ const ServicesHero = () => {
 
             <div className="hero-image bg-white rounded-[32px] shadow-xl overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=900&auto=format&fit=crop&q=60"
+                src="https://appinventiv.com/wp-content/themes/twentynineteen-child/new-images/upstream-software-solution-banner.webp"
                 alt="Software services"
                 className="w-[420px] h-[480px] object-cover"
               />

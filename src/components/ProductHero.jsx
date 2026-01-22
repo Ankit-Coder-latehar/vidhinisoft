@@ -39,11 +39,10 @@ const ProductsHero = () => {
   return (
     <section
       ref={heroRef}
-      className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-black"
+      className="relative w-full bg-[#f8f9fb] overflow-hidden"
     >
-      {/* Glow effects */}
-      <div className="absolute top-[-120px] left-[-120px] w-[300px] h-[300px] bg-blue-600/30 rounded-full blur-[120px]" />
-      <div className="absolute bottom-[-120px] right-[-120px] w-[300px] h-[300px] bg-purple-600/30 rounded-full blur-[120px]" />
+      {/* background curve */}
+      <div className="absolute bottom-0 left-0 w-full h-40 bg-white rounded-t-[100%] z-0" />
 
       <div className="relative max-w-7xl mx-auto px-6 py-28 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
         
@@ -58,7 +57,7 @@ const ProductsHero = () => {
 
           <h1
             ref={titleRef}
-            className="text-4xl md:text-5xl xl:text-6xl font-bold leading-tight text-white"
+            className="text-4xl md:text-5xl xl:text-6xl font-bold leading-tight text-gray-800"
           >
             Products Built for <br />
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
@@ -68,13 +67,13 @@ const ProductsHero = () => {
 
           <p
             ref={textRef}
-            className="text-lg text-slate-300 max-w-xl"
+            className="text-lg text-gray-600 max-w-xl"
           >
-            At Vardhini Software Solutions, we build practical, scalable, and
-            impact-driven digital products that solve real business problems.
-            Our products are designed with a strong focus on user experience,
-            operational efficiency, and long-term growth—serving both
-            businesses and end customers.
+            At Vidhini Soft, we build practical, scalable, and impact-driven
+            digital products that solve real business problems. Our solutions
+            are designed with a strong focus on user experience, operational
+            efficiency, and long-term growth—serving both businesses and end
+            customers.
           </p>
         </div>
 
@@ -84,7 +83,7 @@ const ProductsHero = () => {
           className="relative flex justify-center lg:justify-end"
         >
           <div className="relative w-[320px] h-[320px] rounded-2xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/10 backdrop-blur-xl shadow-2xl">
-            <div className="absolute inset-4 rounded-xl bg-slate-900/80 flex items-center justify-center">
+            <div className="absolute inset-4 rounded-xl bg-white/80 flex items-center justify-center">
               <span className="text-6xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 VS
               </span>

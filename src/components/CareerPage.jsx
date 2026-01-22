@@ -36,12 +36,15 @@ const CareersHero = () => {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-black">
-      {/* Background glow */}
-      <div className="absolute top-[-120px] left-[-120px] w-[300px] h-[300px] bg-blue-600/30 rounded-full blur-[120px]" />
-      <div className="absolute bottom-[-120px] right-[-120px] w-[300px] h-[300px] bg-purple-600/30 rounded-full blur-[120px]" />
+    <section className="relative w-full bg-[#f8f9fb] overflow-hidden py-28">
+      {/* White curved bottom */}
+      <div className="absolute bottom-0 left-0 w-full h-40 bg-white rounded-t-[100%] z-0" />
 
-      <div className="relative max-w-7xl mx-auto px-6 py-28 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      {/* Optional subtle floating circles for depth */}
+      <div className="absolute top-[-120px] left-[-120px] w-[300px] h-[300px] bg-blue-100/30 rounded-full blur-[120px]" />
+      <div className="absolute bottom-[-120px] right-[-120px] w-[300px] h-[300px] bg-purple-100/30 rounded-full blur-[120px]" />
+
+      <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center z-10">
         
         {/* Left Content */}
         <div className="space-y-6">
@@ -49,12 +52,12 @@ const CareersHero = () => {
             ref={badgeRef}
             className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
           >
-            Careers at Vardhini
+            Careers at Vidhini Soft
           </span>
 
           <h1
             ref={titleRef}
-            className="text-4xl md:text-5xl xl:text-6xl font-bold text-white leading-tight"
+            className="text-4xl md:text-5xl xl:text-6xl font-bold text-gray-800 leading-tight"
           >
             Build Technology.
             <br />
@@ -65,17 +68,16 @@ const CareersHero = () => {
 
           <p
             ref={textRef}
-            className="text-lg text-slate-300 max-w-xl"
+            className="text-gray-600 text-lg max-w-xl"
           >
-            At Vardhini Software Solutions, we believe great technology is built
-            by great people. We’re always looking for passionate, curious, and
-            driven individuals who want to grow their careers while building
-            impactful digital products.
+            At Vidhini Soft, we believe great technology is built by great people. 
+            We’re always looking for passionate, curious, and driven individuals who 
+            want to grow their careers while building impactful digital products.
           </p>
 
-          <p className="text-slate-400 max-w-xl">
-            If you love solving problems, learning new technologies, and working
-            in a collaborative environment—you’ll feel right at home here.
+          <p className="text-gray-500 max-w-xl">
+            If you love solving problems, learning new technologies, and working in 
+            a collaborative environment—you’ll feel right at home here.
           </p>
         </div>
 
@@ -86,12 +88,12 @@ const CareersHero = () => {
         >
           <div className="relative w-[340px] h-[340px] rounded-2xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/10 backdrop-blur-xl shadow-2xl flex items-center justify-center">
             
-            <div className="absolute inset-6 rounded-xl bg-slate-900/80 border border-white/10 flex flex-col items-center justify-center space-y-3">
+            <div className="absolute inset-6 rounded-xl bg-white/80 border border-white/10 flex flex-col items-center justify-center space-y-3">
               <span className="text-5xl">👩‍💻👨‍💻</span>
-              <p className="text-white font-semibold">
+              <p className="text-gray-800 font-semibold">
                 Join Our Team
               </p>
-              <p className="text-slate-400 text-sm text-center px-6">
+              <p className="text-gray-500 text-sm text-center px-6">
                 Learn • Build • Grow Together
               </p>
             </div>

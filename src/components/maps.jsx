@@ -118,7 +118,7 @@ const OutsourcingBenefits = () => {
           {/* LEFT MAP */}
           <div className="relative flex justify-center">
             <img
-              src="https://glofy.co/new-front/images/resources/map.png"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAmBjyhFxwfNFW9el24rB-ccLpxx0EvC2r-A&s"
               alt="Latin America Map"
               className="ob-map max-w-sm w-full opacity-90"
             />

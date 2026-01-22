@@ -45,52 +45,54 @@ const ZewaProductSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-slate-950 py-28"
+      className="relative w-full bg-[#f8f9fb] overflow-hidden py-28"
     >
-      {/* Background glow */}
-      <div className="absolute top-1/2 left-[-120px] w-[300px] h-[300px] bg-blue-600/20 rounded-full blur-[120px]" />
-      <div className="absolute bottom-[-120px] right-[-120px] w-[300px] h-[300px] bg-purple-600/20 rounded-full blur-[120px]" />
+      {/* White curved background */}
+      <div className="absolute bottom-0 left-0 w-full h-40 bg-white rounded-t-[100%] z-0" />
+
+      {/* Decorative gradients */}
+      <div className="absolute top-[-120px] left-[-120px] w-[300px] h-[300px] bg-blue-100/30 rounded-full blur-[120px]" />
+      <div className="absolute bottom-[-120px] right-[-120px] w-[300px] h-[300px] bg-purple-100/30 rounded-full blur-[120px]" />
 
       <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        
+
         {/* Left Content */}
-        <div ref={leftRef} className="space-y-6">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-sm font-medium">
-            🚀 ZeWa App
+        <div ref={leftRef} className="space-y-6 z-10">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-500 border border-blue-500/20 text-sm font-medium">
+            💻 Vidhini Soft
           </span>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-            Smart Queue & <br />
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
+            Building Scalable <br />
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Appointment Management
+              Digital Solutions
             </span>
           </h2>
 
-          <p className="text-slate-300 text-lg max-w-xl">
-            ZeWa is our flagship product—an intelligent, all-in-one platform
-            designed to transform how service-based businesses manage customers,
-            queues, and appointments.
+          <p className="text-gray-600 text-lg max-w-xl">
+            Vidhini Soft is a modern software development company focused on
+            building high-quality, scalable, and performance-driven digital
+            solutions for businesses of all sizes.
           </p>
 
-          <p className="text-slate-400 max-w-xl">
-            Built for industries like salons, spas, beauty parlors, wellness
-            centers, and automotive services, ZeWa bridges the gap between
-            businesses and customers with real-time visibility and seamless
-            interactions.
+          <p className="text-gray-500 max-w-xl">
+            From web and mobile applications to custom software, automation,
+            and cloud-based platforms, we help businesses innovate, grow, and
+            stay ahead in the digital era.
           </p>
 
-          {/* Industry tags */}
+          {/* Service tags */}
           <div className="flex flex-wrap gap-3 pt-2">
             {[
-              "Salons",
-              "Spas",
-              "Wellness Centers",
-              "Beauty Parlors",
-              "Automotive Services",
+              "Web Development",
+              "Mobile Apps",
+              "UI/UX Design",
+              "Custom Software",
+              "Cloud Solutions",
             ].map((item) => (
               <span
                 key={item}
-                className="px-3 py-1 rounded-full text-sm bg-white/5 text-slate-300 border border-white/10"
+                className="px-3 py-1 rounded-full text-sm bg-white/5 text-gray-500 border border-white/10"
               >
                 {item}
               </span>
@@ -98,25 +100,24 @@ const ZewaProductSection = () => {
           </div>
         </div>
 
-        {/* Right Visual */}
-        <div ref={rightRef} className="relative flex justify-center lg:justify-end">
+        {/* Right Visual (unchanged) */}
+        <div ref={rightRef} className="relative flex justify-center lg:justify-end z-10">
           <div className="relative w-[340px] h-[420px] rounded-2xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/10 backdrop-blur-xl shadow-2xl">
             
-            {/* Floating UI cards */}
-            <div className="absolute top-6 left-6 right-6 h-16 rounded-xl bg-slate-900/80 border border-white/10 flex items-center justify-between px-4">
-              <span className="text-sm text-white">Live Queue</span>
+            <div className="absolute top-6 left-6 right-6 h-16 rounded-xl bg-white/80 border border-white/10 flex items-center justify-between px-4">
+              <span className="text-sm text-gray-800">Project Status</span>
               <span className="text-emerald-400 text-sm font-medium">
-                12 Waiting
+                In Progress
               </span>
             </div>
 
-            <div className="absolute top-28 left-6 right-10 h-20 rounded-xl bg-slate-900/80 border border-white/10 px-4 py-3">
-              <p className="text-sm text-white">Appointment Confirmed</p>
-              <p className="text-xs text-slate-400">Today • 4:30 PM</p>
+            <div className="absolute top-28 left-6 right-10 h-20 rounded-xl bg-white/80 border border-white/10 px-4 py-3">
+              <p className="text-sm text-gray-800">Client Dashboard</p>
+              <p className="text-xs text-gray-500">Real-time Updates</p>
             </div>
 
-            <div className="absolute bottom-10 left-10 right-6 h-24 rounded-xl bg-slate-900/80 border border-white/10 px-4 py-3">
-              <p className="text-sm text-white">Customer Flow</p>
+            <div className="absolute bottom-10 left-10 right-6 h-24 rounded-xl bg-white/80 border border-white/10 px-4 py-3">
+              <p className="text-sm text-gray-800">Development Progress</p>
               <div className="mt-2 h-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-400" />
             </div>
           </div>

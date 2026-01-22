@@ -1,113 +1,161 @@
 import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function CustomerHero() {
-  const containerRef = useRef(null);
-  const titleRef = useRef(null);
-  const subtitleRef = useRef(null);
-  const badgeRef = useRef(null);
-  const bgRef = useRef(null);
+const CustomerHero = () => {
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Background fade-in + scale
-      gsap.fromTo(
-        bgRef.current,
-        { scale: 1.1, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 1.5, ease: "power3.out" }
-      );
-
-      // Badge animation
-      gsap.from(badgeRef.current, {
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-        delay: 0.2,
-        ease: "power3.out",
-      });
-
-      // Title staggered animation
-      gsap.from(titleRef.current.children, {
-        y: 80,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.12,
-        ease: "power4.out",
-        delay: 0.4,
-      });
-
-      // Subtitle animation
-      gsap.from(subtitleRef.current, {
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        delay: 1,
-        ease: "power3.out",
-      });
-
-      // Subtle parallax on scroll
-      gsap.to(bgRef.current, {
-        y: 80,
+      const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
+          trigger: sectionRef.current,
+          start: "top 75%",
+          toggleActions: "play none none reverse",
         },
+        defaults: { ease: "power3.out" },
       });
-    }, containerRef);
+
+      tl.from(".ai-badge", {
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+      })
+        .from(
+          ".ai-title",
+          {
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+          },
+          "-=0.3"
+        )
+        .from(
+          ".ai-desc",
+          {
+            y: 30,
+            opacity: 0,
+            duration: 0.6,
+          },
+          "-=0.4"
+        )
+        .from(
+          ".ai-btn",
+          {
+            scale: 0.9,
+            opacity: 0,
+            duration: 0.5,
+          },
+          "-=0.3"
+        )
+        .from(
+          ".ai-image",
+          {
+            x: 60,
+            opacity: 0,
+            duration: 1,
+          },
+          "-=0.8"
+        )
+        .from(
+          ".ai-neon",
+          {
+            scale: 0,
+            rotate: 30,
+            duration: 0.8,
+          },
+          "-=0.8"
+        )
+        .from(
+          ".ai-float",
+          {
+            scale: 0,
+            opacity: 0,
+            stagger: 0.15,
+            duration: 0.4,
+          },
+          "-=0.6"
+        );
+
+      // Floating loop
+      gsap.to(".ai-float", {
+        y: -8,
+        duration: 2,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        stagger: 0.3,
+      });
+    }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
-  const titleWords = ["Our", "Valued", "Customers"];
-
   return (
     <section
-      ref={containerRef}
-      className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-slate-950"
+      ref={sectionRef}
+      className="relative w-full bg-[#f8f9fb] overflow-hidden"
     >
-      {/* Background gradient */}
-      <div
-        ref={bgRef}
-        className="absolute inset-0 bg-gradient-to-br from-green-600/30 via-teal-600/20 to-cyan-500/20"
-      />
+      {/* background curve */}
+      <div className="absolute bottom-0 left-0 w-full h-40 bg-white rounded-t-[100%] z-0" />
 
-      {/* Glow blobs */}
-      <div className="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-green-500/30 blur-3xl" />
-      <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-teal-500/20 blur-3xl" />
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-28 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-      {/* Content */}
-      <div className="relative z-10 max-w-5xl px-6 text-center text-white">
-        <span
-          ref={badgeRef}
-          className="inline-block mb-6 rounded-full border border-white/20 bg-white/10 px-5 py-2 text-sm tracking-wide backdrop-blur"
-        >
-          Our Customers
-        </span>
+        {/* LEFT CONTENT */}
+        <div>
+          <p className="ai-badge text-blue-400 font-semibold tracking-widest mb-4">
+            VIDHINI SOFT
+          </p>
 
-        <h1
-          ref={titleRef}
-          className="flex flex-wrap justify-center gap-x-3 gap-y-2 text-4xl font-bold leading-tight sm:text-6xl lg:text-7xl"
-        >
-          {titleWords.map((word, i) => (
-            <span key={i} className="inline-block">
-              {word}
-            </span>
-          ))}
-        </h1>
+          <h1 className="ai-title text-[42px] sm:text-[48px] leading-[1.15] font-bold text-gray-800 mb-6">
+            Empowering Your Business <br />
+            with Smart Software Solutions
+          </h1>
 
-        <p
-          ref={subtitleRef}
-          className="mx-auto mt-8 max-w-2xl text-base text-white/80 sm:text-lg"
-        >
-          We cherish our clients and are proud of the work we’ve done together.
-          Their success is our motivation to keep creating outstanding digital experiences.
-        </p>
+          <p className="ai-desc text-gray-500 text-lg leading-relaxed max-w-xl mb-10">
+            From strategy and design to development and scaling, Vidhini Soft
+            delivers tailored digital solutions that help your business thrive,
+            streamline operations, and drive growth.
+          </p>
+
+          <button className="ai-btn bg-blue-400 hover:bg-lime-500 transition text-white font-semibold px-8 py-4 rounded-md">
+            Get Started with Us
+          </button>
+        </div>
+
+        {/* RIGHT IMAGE */}
+        <div className="relative flex justify-center">
+          {/* neon card */}
+          <div className="ai-neon absolute right-8 top-8 w-40 h-56 bg-blue-300 rounded-2xl z-0" />
+
+          {/* main image */}
+          <div className="ai-image relative z-10 rounded-2xl overflow-hidden shadow-xl">
+            <img
+              src="https://plus.unsplash.com/premium_photo-1677368599009-8356bfcb3994?w=600&auto=format&fit=crop&q=60"
+              alt="Vidhini Soft Solutions"
+              className="w-[320px] sm:w-[380px] h-[380px] sm:h-[420px] object-cover"
+            />
+          </div>
+
+          {/* floating icons */}
+          <div className="ai-float absolute left-6 top-24 bg-white rounded-full p-4 shadow-lg">
+            💻
+          </div>
+
+          <div className="ai-float absolute right-6 top-12 bg-white rounded-full p-4 shadow-lg">
+            📈
+          </div>
+
+          <div className="ai-float absolute right-10 bottom-12 bg-white rounded-full p-4 shadow-lg">
+            ⚙️
+          </div>
+        </div>
+
       </div>
     </section>
   );
-}
+};
+
+export default CustomerHero;

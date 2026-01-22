@@ -120,7 +120,7 @@ const FeaturesSection = () => {
         {/* CTA */}
         <div className="text-center mt-20">
           <p className="text-slate-300 text-lg">
-            Have an idea or want to learn more about <span className="text-blue-400">ZeWa</span>?
+            Have an idea or want to learn more about <span className="text-blue-400">Vidhini</span>?
           </p>
           <p className="text-white text-xl font-semibold mt-2">
             Let’s build the future together.
