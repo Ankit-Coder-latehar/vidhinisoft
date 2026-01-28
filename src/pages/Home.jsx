@@ -12,6 +12,11 @@ import OutsourcingBenefits from '../components/maps'
 import ContactForm from '../components/Contact'
 import TechnologiesSection from '../components/TechnologiesSection'
 import SecondFooter from '../components/SecondFooter'
+import RevenueComparison from '../components/CompanyMarque'
+import OurStoryHero from '../components/OurStory'
+import HowWeBuild from '../components/HowWeBuild'
+import HowWeDeliver from '../components/HowWeDeliver'
+import OurIdeas from '../components/OurIdeas'
 
 const Home = () => {
   return (
@@ -19,16 +24,20 @@ const Home = () => {
       <Navbar />
       <Hero />
       <LogosSection />
-      <StaffingSection />
-      <CustomerServiceSection />
+      <RevenueComparison/>
+      <OurStoryHero/>
+      <HowWeBuild/>
+      <HowWeDeliver/>
+      {/* <CustomerServiceSection />
       <Benefits />
       <OutsourcingBenefits />
-      <WorkProcess />
+      <WorkProcess /> */}
+      <OurIdeas/>
       <Testimonials />
-      <TechnologiesSection/>
+      {/* <TechnologiesSection/> */}
       <ContactForm />
       <SecondFooter/>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }

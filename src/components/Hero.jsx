@@ -1,139 +1,136 @@
-import React, { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { useState } from "react";
 
-gsap.registerPlugin(ScrollTrigger);
+const steps = {
+  acquisition: {
+    title: "Acquisition",
+    desc: "Get discovered by high-intent users using SEO, paid ads, and AI-driven search."
+  },
+  pipeline: {
+    title: "Pipeline",
+    desc: "Turn traffic into qualified leads with CRO, landing pages, and automation."
+  },
+  revenue: {
+    title: "Revenue",
+    desc: "Convert leads into measurable revenue with attribution and optimization."
+  },
+  intelligence: {
+    title: "Intelligence",
+    desc: "Use AI insights, analytics, and data to continuously improve performance."
+  }
+};
 
-const ServicesHero = () => {
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 75%",
-          toggleActions: "play none none reverse",
-        },
-        defaults: { ease: "power3.out" },
-      });
-
-      tl.from(".hero-badge", {
-        y: 20,
-        opacity: 0,
-        duration: 0.6,
-      })
-        .from(
-          ".hero-title",
-          {
-            y: 40,
-            opacity: 0,
-            duration: 0.8,
-          },
-          "-=0.3"
-        )
-        .from(
-          ".hero-desc",
-          {
-            y: 30,
-            opacity: 0,
-            duration: 0.6,
-          },
-          "-=0.4"
-        )
-        .from(
-          ".hero-btn",
-          {
-            scale: 0.9,
-            opacity: 0,
-            duration: 0.5,
-          },
-          "-=0.3"
-        )
-        .from(
-          ".hero-image",
-          {
-            x: 60,
-            opacity: 0,
-            duration: 1,
-          },
-          "-=0.8"
-        )
-        .from(
-          ".neon-1",
-          {
-            scale: 0,
-            rotate: 45,
-            duration: 0.8,
-          },
-          "-=0.8"
-        )
-        .from(
-          ".neon-2",
-          {
-            scale: 0,
-            rotate: -45,
-            duration: 0.6,
-          },
-          "-=0.6"
-        );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
+const Hero = () => {
+  const [active, setActive] = useState(null);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative overflow-hidden bg-[#f9fafb]"
-    >
-      {/* Background curve */}
-      <div className="absolute bottom-0 left-0 w-full h-40 bg-white rounded-t-[80%]" />
+    <section className="relative overflow-hidden bg-[#f6f9fc]">
+      {/* Grid background */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-[size:80px_80px] opacity-40" />
 
-      <div className="relative max-w-[1400px] mx-auto px-6 py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="relative mx-auto max-w-7xl px-6 py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        
+        {/* LEFT */}
+        <div>
+          <h1 className="text-4xl md:text-5xl xl:text-6xl font-extrabold leading-tight text-[#0f172a]">
+            Your Revenue <br />
+            Growth Partner in <br />
+            the AI Era
+          </h1>
 
-          {/* LEFT CONTENT */}
-          <div>
-            <p className="hero-badge text-lg text-gray-800 mb-6">
-              Our Expertise.{" "}
-              <span className="font-semibold">Your Advantage.</span>
-            </p>
+          <p className="mt-6 max-w-xl text-lg text-slate-600">
+            For marketing teams who need to prove revenue impact, not just
+            report performance. WebFX's revenue-focused framework connects
+            expert execution, data, and strategy to drive measurable growth in
+            2026 and beyond.
+          </p>
 
-            <h1 className="hero-title text-[44px] leading-[1.15] md:text-[56px] font-extrabold text-gray-800 mb-6">
-              End-to-End Software <br />
-              Services to Power <br />
-              Your Business.
-            </h1>
-
-            <p className="hero-desc text-lg text-gray-500 max-w-xl mb-10">
-              From strategy and design to development and scaling, we deliver
-              high-impact digital solutions tailored to your goals.
-            </p>
-
-            <button className="hero-btn bg-blue-400 hover:bg-[#bce600] text-black font-semibold px-8 py-4 rounded-lg transition">
-              Explore our services
+          <div className="mt-10 flex w-full max-w-lg items-center bg-white shadow-md rounded-lg overflow-hidden">
+            <input
+              type="text"
+              placeholder="Enter your website"
+              className="flex-1 px-5 py-4 text-slate-600 outline-none"
+            />
+            <button className="bg-[#0f172a] text-white px-8 py-4 font-semibold hover:bg-[#020617] transition">
+              Get My Free Proposal
             </button>
           </div>
+        </div>
 
-          {/* RIGHT IMAGE */}
-          <div className="relative flex justify-center">
-            <div className="neon-1 absolute -top-10 right-10 w-[260px] h-[260px] bg-[#C7F000] rounded-[60px] -z-10" />
-            <div className="neon-2 absolute -bottom-12 right-28 w-[120px] h-[120px] bg-[#eaff99] rounded-[40px] -z-10" />
+        {/* RIGHT */}
+        <div className="relative flex justify-center items-center">
+          
+          {/* Ring */}
+          <div className="relative w-[420px] h-[420px] rounded-full flex items-center justify-center">
 
-            <div className="hero-image bg-white rounded-[32px] shadow-xl overflow-hidden">
-              <img
-                src="https://appinventiv.com/wp-content/themes/twentynineteen-child/new-images/upstream-software-solution-banner.webp"
-                alt="Software services"
-                className="w-[420px] h-[480px] object-cover"
-              />
+            {/* Acquisition */}
+            <div
+              onMouseEnter={() => setActive("acquisition")}
+              onMouseLeave={() => setActive(null)}
+              className="absolute top-2 left-1/2 -translate-x-1/2 w-[260px] h-[90px] bg-blue-500 rounded-full text-white font-semibold flex items-center justify-center rotate-[-10deg] cursor-pointer"
+            >
+              Acquisition
+            </div>
+
+            {/* Pipeline */}
+            <div
+              onMouseEnter={() => setActive("pipeline")}
+              onMouseLeave={() => setActive(null)}
+              className="absolute right-2 top-1/2 -translate-y-1/2 w-[90px] h-[260px] bg-teal-400 rounded-full text-white font-semibold flex items-center justify-center rotate-[10deg] cursor-pointer"
+              style={{ writingMode: "vertical-rl" }}
+            >
+              Pipeline
+            </div>
+
+            {/* Revenue */}
+            <div
+              onMouseEnter={() => setActive("revenue")}
+              onMouseLeave={() => setActive(null)}
+              className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[260px] h-[90px] bg-green-400 rounded-full text-white font-semibold flex items-center justify-center rotate-[10deg] cursor-pointer"
+            >
+              Revenue
+            </div>
+
+            {/* Intelligence */}
+            <div
+              onMouseEnter={() => setActive("intelligence")}
+              onMouseLeave={() => setActive(null)}
+              className="absolute left-2 top-1/2 -translate-y-1/2 w-[90px] h-[260px] bg-purple-500 rounded-full text-white font-semibold flex items-center justify-center rotate-[-10deg] cursor-pointer"
+              style={{ writingMode: "vertical-rl" }}
+            >
+              Intelligence
+            </div>
+
+            {/* Center */}
+            <div className="absolute w-56 h-56 bg-white rounded-full shadow-xl flex flex-col items-center justify-center text-center z-10">
+              <span className="text-sm font-semibold text-slate-500">WebFX</span>
+              <h3 className="text-lg font-bold text-slate-900">
+                Revenue Engine
+              </h3>
+              <p className="text-blue-600 font-semibold mt-1">
+                15% Higher Lead Growth
+              </p>
+
+              <button className="mt-4 w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white hover:scale-105 transition">
+                ▶
+              </button>
             </div>
           </div>
 
+          {/* Tooltip */}
+          {active && (
+            <div className="absolute right-[-260px] top-1/2 -translate-y-1/2 w-64 bg-white shadow-xl rounded-xl p-5 border border-slate-100">
+              <h4 className="text-lg font-bold text-slate-900">
+                {steps[active].title}
+              </h4>
+              <p className="mt-2 text-sm text-slate-600">
+                {steps[active].desc}
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </section>
   );
 };
 
-export default ServicesHero;
+export default Hero;

@@ -1,151 +1,121 @@
-import React, { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import {
-  Code2,
-  ShieldCheck,
-  Brain,
-  LayoutDashboard,
-} from "lucide-react";
+import React from "react";
 
-gsap.registerPlugin(ScrollTrigger);
-
-const services = [
-  {
-    title: "Custom Software Development",
-    description:
-      "Craft custom software for your unique needs, spanning front-end and core back-end technology.",
-    icon: Code2,
-  },
-  {
-    title: "QA and Testing",
-    description:
-      "Ensure seamless functionality and reliability through rigorous quality assurance and testing.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "AI and Data Science",
-    description:
-      "Harness AI and data science for meaningful insights and enhanced business processes.",
-    icon: Brain,
-  },
-  {
-    title: "UX/UI Design",
-    description:
-      "Create visually stunning, user-friendly interfaces for an enhanced digital experience.",
-    icon: LayoutDashboard,
-  },
-];
-
-export default function StaffingSection() {
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 75%",
-          toggleActions: "play none none reverse",
-        },
-        defaults: { ease: "power3.out" },
-      });
-
-      tl.from(".staffing-label", {
-        y: 20,
-        opacity: 0,
-        duration: 0.5,
-      })
-        .from(
-          ".staffing-title",
-          {
-            y: 40,
-            opacity: 0,
-            duration: 0.7,
-          },
-          "-=0.3"
-        )
-        .from(
-          ".staffing-desc",
-          {
-            y: 30,
-            opacity: 0,
-            duration: 0.6,
-          },
-          "-=0.4"
-        )
-        .from(
-          ".service-card",
-          {
-            y: 30,
-            opacity: 0,
-            stagger: 0.15,
-            duration: 0.6,
-          },
-          "-=0.3"
-        )
-        .from(
-          ".service-icon",
-          {
-            scale: 0.6,
-            opacity: 0,
-            stagger: 0.15,
-            duration: 0.4,
-          },
-          "-=0.8"
-        );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
+const RevenueComparison = () => {
   return (
-    <section
-      ref={sectionRef}
-      className="bg-white py-24"
-    >
-      <div className="max-w-[1400px] mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-20 items-start">
+    <section className="relative bg-white py-28 overflow-hidden">
+      
+      {/* Dotted curve background */}
+      <svg
+        className="absolute top-20 left-0 w-full h-64 opacity-40"
+        viewBox="0 0 1200 200"
+        fill="none"
+      >
+        <path
+          d="M0 100 C 200 20, 400 180, 600 100 S 1000 20, 1200 100"
+          stroke="#94d3c7"
+          strokeWidth="2"
+          strokeDasharray="6 8"
+        />
+      </svg>
 
-          {/* LEFT CONTENT */}
-          <div>
-            <p className="staffing-label text-sm tracking-widest text-gray-500 font-semibold mb-6">
-              STAFFING: ONE-STOP SOLUTION
-            </p>
+      <div className="relative max-w-7xl mx-auto px-6 text-center">
+        
+        {/* Heading */}
+        <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900">
+          Move From Marketing that Reports Clicks to
+          <br />
+          <span className="text-blue-600">
+            Marketing that Reports Revenue
+          </span>
+        </h2>
 
-            <h2 className="staffing-title text-[44px] leading-[1.2] font-extrabold text-gray-800 mb-6">
-              Hire faster with our vetted
-              <br />
-              developers in your time zone
-            </h2>
+        {/* Subtitle */}
+        <p className="mt-6 max-w-4xl mx-auto text-lg text-slate-600">
+          Traditional marketing optimizes for channel metrics. Revenue marketing
+          optimizes for business impact. Connected revenue marketing through
+          RevenueCloudFX leads to{" "}
+          <strong className="text-slate-900">
+            1.8X faster lead growth than industry average.
+          </strong>
+        </p>
+      </div>
 
-            <p className="staffing-desc text-lg text-gray-500 max-w-xl leading-relaxed">
-              Staff augmentation streamlines talent addition to your team via a
-              third party, offering flexibility and immediate access to a
-              high-quality talent pool.
-            </p>
+      {/* Comparison */}
+      <div className="relative max-w-6xl mx-auto mt-24 grid grid-cols-1 md:grid-cols-2 gap-16 px-6 items-center">
+        
+        {/* LEFT – Traditional */}
+        <div className="relative text-center">
+          
+          {/* Funnel */}
+          <div className="relative mx-auto w-48">
+            <div className="h-20 bg-gray-400 rounded-t-full" />
+            <div className="h-20 bg-gray-500 w-40 mx-auto" />
+            <div className="h-20 bg-gray-600 w-28 mx-auto" />
+            <div className="h-16 bg-gray-700 w-16 mx-auto rounded-b-full" />
+
+            {/* Cracks */}
+            <div className="absolute inset-0 pointer-events-none">
+              <svg viewBox="0 0 100 300" className="w-full h-full">
+                <path
+                  d="M50 0 L40 60 L60 120 L45 180 L55 260"
+                  stroke="#1f2937"
+                  strokeWidth="2"
+                />
+              </svg>
+            </div>
           </div>
 
-          {/* RIGHT SERVICES */}
-          <div className="grid sm:grid-cols-2 gap-x-16 gap-y-14">
-            {services.map((service, index) => {
-              const Icon = service.icon;
-              return (
-                <div key={index} className="service-card">
-                  <Icon className="service-icon w-10 h-10 text-blue-400 mb-4" />
-                  <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-500 leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
-              );
-            })}
+          <h3 className="mt-8 text-xl font-bold text-slate-700">
+            Traditional Digital Marketing
+          </h3>
+
+          <p className="mt-3 text-slate-500 max-w-sm mx-auto">
+            Siloed marketing and sales data leads to a broken, inefficient funnel
+            that leads to decisions based on <em>feel</em> rather than true ROI.
+          </p>
+        </div>
+
+        {/* Divider */}
+        <div className="hidden md:block absolute left-1/2 top-0 h-full w-px bg-blue-700">
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-6 bg-blue-700 rounded-full" />
+        </div>
+
+        {/* RIGHT – Revenue Marketing */}
+        <div className="relative text-center">
+          
+          {/* Funnel */}
+          <div className="relative mx-auto w-48">
+            <div className="h-20 bg-blue-500 rounded-t-full flex items-center justify-center text-white text-sm font-semibold">
+              Brand Visibility
+            </div>
+            <div className="h-20 bg-teal-400 w-40 mx-auto flex items-center justify-center text-white text-sm font-semibold">
+              Website Traffic
+            </div>
+            <div className="h-20 bg-green-400 w-28 mx-auto flex items-center justify-center text-white text-sm font-semibold">
+              Qualified Leads
+            </div>
+            <div className="h-16 bg-green-600 w-16 mx-auto rounded-b-full flex items-center justify-center text-white text-xs font-semibold">
+              Sales
+            </div>
           </div>
 
+          <p className="mt-4 text-sm font-semibold text-teal-500">
+            Revenue-Backed Optimization
+          </p>
+
+          <h3 className="mt-6 text-xl font-bold text-slate-900">
+            Revenue Marketing
+          </h3>
+
+          <p className="mt-3 text-slate-600 max-w-sm mx-auto">
+            WebFX connects your data through{" "}
+            <strong>RevenueCloudFX</strong> to make revenue-backed marketing
+            decisions that reduce cost per lead and maximize ROI.
+          </p>
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default RevenueComparison;

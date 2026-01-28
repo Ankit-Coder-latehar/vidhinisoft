@@ -12,6 +12,7 @@ import CustomerServiceSection from './components/containers'
 import CustomersPage from './pages/Customers'
 import Product from './pages/Product'
 import Carrer from './pages/Carrer'
+import JobDetails from './components/JobDetails'
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/customer" element={<CustomersPage />} />
         <Route path="/product" element={<Product />} />
         <Route path="/career" element={<Carrer />} />
+<Route path="/careers/:slug" element={<JobDetails />} />
 
 
 

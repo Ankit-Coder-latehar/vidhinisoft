@@ -79,19 +79,19 @@ const Benefits = () => {
         {/* LEFT CONTENT */}
         <div>
           <p className="benefits-label text-sm font-semibold tracking-widest text-gray-400 uppercase">
-            Explore the benefits
+            Our key advantages
           </p>
 
           <h2 className="benefits-title mt-4 text-5xl font-semibold text-gray-900 leading-tight">
-            Get to know the <br />
-            advantages of working <br />
-            with us
+            What makes us a <br />
+            reliable technology <br />
+            partner
           </h2>
 
           <p className="benefits-desc mt-8 text-lg text-gray-500 max-w-xl leading-relaxed">
-            Today it is increasingly difficult to run a profitable business
-            without at least one results-oriented outsourcing provider focused
-            on customer satisfaction.
+            Choosing the right development partner can define your product’s
+            success. We focus on quality engineering, clear collaboration, and
+            long-term value to help businesses grow with confidence.
           </p>
         </div>
 
@@ -104,10 +104,11 @@ const Benefits = () => {
               <IdCard className="w-7 h-7 text-white" />
             </div>
             <h3 className="text-xl font-semibold text-gray-900 mb-3">
-              Guaranteed Talent
+              Skilled & Reliable Team
             </h3>
             <p className="text-gray-500 leading-relaxed">
-              Pre-screened talents available for pre-interviews.
+              Collaborate with experienced engineers who understand business
+              requirements and deliver clean, maintainable, and scalable code.
             </p>
           </div>
 
@@ -117,11 +118,11 @@ const Benefits = () => {
               <MessageSquare className="w-7 h-7 text-white" />
             </div>
             <h3 className="text-xl font-semibold text-gray-900 mb-3">
-              Streamline communication
+              Open & Consistent Communication
             </h3>
             <p className="text-gray-500 leading-relaxed">
-              Our developers sync with your schedule and excel in clear
-              communication.
+              We prioritize transparency through regular updates, clear
+              timelines, and proactive collaboration at every step.
             </p>
           </div>
 
@@ -131,10 +132,11 @@ const Benefits = () => {
               <Clock className="w-7 h-7 text-white" />
             </div>
             <h3 className="text-xl font-semibold text-gray-900 mb-3">
-              Save time
+              Efficient Delivery
             </h3>
             <p className="text-gray-500 leading-relaxed">
-              Avoiding a long recruitment process.
+              Our agile approach helps reduce development cycles and ensures
+              faster delivery without compromising on quality.
             </p>
           </div>
 
@@ -144,10 +146,11 @@ const Benefits = () => {
               <Rocket className="w-7 h-7 text-white" />
             </div>
             <h3 className="text-xl font-semibold text-gray-900 mb-3">
-              Teams On-Demand
+              Growth-Ready Engagement Models
             </h3>
             <p className="text-gray-500 leading-relaxed">
-              Whether it's one or ten, we're ready to scale with you.
+              Whether you’re launching an MVP or scaling an enterprise product,
+              our flexible models adapt to your evolving needs.
             </p>
           </div>
 

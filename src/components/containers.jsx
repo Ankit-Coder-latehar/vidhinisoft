@@ -76,7 +76,7 @@ export default function CustomerServiceSection() {
           <div className="flex justify-center lg:justify-start">
             <img
               src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=600&auto=format&fit=crop&q=60"
-              alt="Team"
+              alt="Dedicated software team"
               className="cs-image w-full max-w-[560px] rounded-[28px] object-cover"
             />
           </div>
@@ -84,35 +84,36 @@ export default function CustomerServiceSection() {
           {/* RIGHT CONTENT */}
           <div>
             <p className="cs-label text-sm tracking-widest font-semibold text-blue-400 mb-4">
-              WE WILL ALWAYS BE BY YOUR SIDE
+              PARTNERSHIP BEYOND DEVELOPMENT
             </p>
 
             <h2 className="cs-title text-[44px] leading-[1.2] font-extrabold text-gray-800 mb-10">
-              Our customer service is our superpower
+              We don’t just build software, <br />
+              we build long-term partnerships
             </h2>
 
             {/* LIST */}
             <div className="space-y-8">
               {[
                 {
-                  title: "Dedicated success manager",
+                  title: "Dedicated project ownership",
                   desc:
-                    "With a customer-centric approach, we're committed to helping you achieve your goals and exceed your expectations at all times.",
+                    "A single point of contact ensures clear communication, accountability, and smooth execution throughout the development lifecycle.",
                 },
                 {
-                  title: "Quick and easy incorporation",
+                  title: "Fast onboarding & delivery",
                   desc:
-                    "With a streamlined process and expert assistance, you'll be ready to take full advantage of our solution in a matter of days.",
+                    "Our proven onboarding process allows your project to move from idea to execution quickly without unnecessary delays.",
                 },
                 {
-                  title: "Service customized to the customer's needs",
+                  title: "Solutions tailored to your business",
                   desc:
-                    "We strive to offer you a service tailored to your individual needs.",
+                    "Every product we build is customized to align with your goals, users, and long-term technical roadmap.",
                 },
                 {
-                  title: "Warm and human attention",
+                  title: "Transparent & human-first approach",
                   desc:
-                    "We work hard to establish genuine connections with each client, providing a personalized service that goes beyond expectations.",
+                    "We believe in honest collaboration, regular updates, and a people-first mindset that keeps you informed and confident.",
                 },
               ].map((item, index) => (
                 <div key={index} className="cs-item flex gap-4">

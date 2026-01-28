@@ -43,11 +43,11 @@ const Navbar = () => {
             </a>
 
             <a href="/service">
-              <span className={navLinkClass("/service")}>Service</span>
+              <span className={navLinkClass("/service")}>Services</span>
             </a>
 
             <a href="/customer">
-              <span className={navLinkClass("/customer")}>Customer</span>
+              <span className={navLinkClass("/customer")}>Customers</span>
             </a>
 
             <a href="/product">
@@ -55,7 +55,7 @@ const Navbar = () => {
             </a>
 
             <a href="/career">
-              <span className={navLinkClass("/career")}>Career</span>
+              <span className={navLinkClass("/career")}>Careers</span>
             </a>
           </nav>
 

@@ -18,76 +18,17 @@ const CustomerHero = () => {
         defaults: { ease: "power3.out" },
       });
 
-      tl.from(".ai-badge", {
-        y: 20,
-        opacity: 0,
-        duration: 0.6,
-      })
-        .from(
-          ".ai-title",
-          {
-            y: 40,
-            opacity: 0,
-            duration: 0.8,
-          },
-          "-=0.3"
-        )
-        .from(
-          ".ai-desc",
-          {
-            y: 30,
-            opacity: 0,
-            duration: 0.6,
-          },
-          "-=0.4"
-        )
-        .from(
-          ".ai-btn",
-          {
-            scale: 0.9,
-            opacity: 0,
-            duration: 0.5,
-          },
-          "-=0.3"
-        )
-        .from(
-          ".ai-image",
-          {
-            x: 60,
-            opacity: 0,
-            duration: 1,
-          },
-          "-=0.8"
-        )
-        .from(
-          ".ai-neon",
-          {
-            scale: 0,
-            rotate: 30,
-            duration: 0.8,
-          },
-          "-=0.8"
-        )
-        .from(
-          ".ai-float",
-          {
-            scale: 0,
-            opacity: 0,
-            stagger: 0.15,
-            duration: 0.4,
-          },
-          "-=0.6"
-        );
-
-      // Floating loop
-      gsap.to(".ai-float", {
-        y: -8,
-        duration: 2,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        stagger: 0.3,
-      });
+      tl.from(".ai-badge", { y: 20, opacity: 0, duration: 0.6 })
+        .from(".ai-title span", {
+          y: 60,
+          opacity: 0,
+          stagger: 0.08,
+          duration: 0.9,
+        }, "-=0.3")
+        .from(".ai-desc", { y: 30, opacity: 0, duration: 0.6 }, "-=0.4")
+        .from(".ai-btn", { scale: 0.95, opacity: 0, duration: 0.5 }, "-=0.3")
+        .from(".ai-image", { x: 60, opacity: 0, duration: 1 }, "-=0.8")
+        .from(".ai-card", { scale: 0.8, opacity: 0, duration: 0.6 }, "-=0.7");
     }, sectionRef);
 
     return () => ctx.revert();
@@ -96,60 +37,60 @@ const CustomerHero = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-[#f8f9fb] overflow-hidden"
+      className="relative overflow-hidden bg-[#fdfbf6]"
     >
-      {/* background curve */}
-      <div className="absolute bottom-0 left-0 w-full h-40 bg-white rounded-t-[100%] z-0" />
+      {/* subtle divider curve */}
+      <div className="absolute top-1/2 left-0 w-full h-px bg-gray-200" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-28 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="relative max-w-7xl mx-auto px-6 py-28 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
         {/* LEFT CONTENT */}
         <div>
-          <p className="ai-badge text-blue-400 font-semibold tracking-widest mb-4">
+          <span className="ai-badge inline-block mb-6 px-5 py-2 rounded-full bg-yellow-400 text-black text-xs font-semibold tracking-widest">
             VIDHINI SOFT
-          </p>
+          </span>
 
-          <h1 className="ai-title text-[42px] sm:text-[48px] leading-[1.15] font-bold text-gray-800 mb-6">
-            Empowering Your Business <br />
-            with Smart Software Solutions
+          <h1 className="ai-title text-4xl sm:text-5xl xl:text-6xl font-extrabold leading-tight text-black mb-6">
+            <span className="block">Empowering Your Business</span>
+            <span className="block">with Smart Software Solutions</span>
           </h1>
 
-          <p className="ai-desc text-gray-500 text-lg leading-relaxed max-w-xl mb-10">
+          <p className="ai-desc text-gray-500 text-lg max-w-xl mb-10">
             From strategy and design to development and scaling, Vidhini Soft
             delivers tailored digital solutions that help your business thrive,
             streamline operations, and drive growth.
           </p>
 
-          <button className="ai-btn bg-blue-400 hover:bg-lime-500 transition text-white font-semibold px-8 py-4 rounded-md">
-            Get Started with Us
-          </button>
+          <div className="flex items-center gap-6">
+            <button className="ai-btn px-8 py-4 rounded-full bg-black text-white font-semibold hover:bg-gray-800 transition">
+              Get Started with Us
+            </button>
+          </div>
         </div>
 
-        {/* RIGHT IMAGE */}
+        {/* RIGHT VISUAL */}
         <div className="relative flex justify-center">
-          {/* neon card */}
-          <div className="ai-neon absolute right-8 top-8 w-40 h-56 bg-blue-300 rounded-2xl z-0" />
-
-          {/* main image */}
-          <div className="ai-image relative z-10 rounded-2xl overflow-hidden shadow-xl">
+          {/* image */}
+          <div className="ai-image relative z-10">
             <img
-              src="https://plus.unsplash.com/premium_photo-1677368599009-8356bfcb3994?w=600&auto=format&fit=crop&q=60"
+              src="https://plus.unsplash.com/premium_photo-1673039393866-130d3d092b66?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGdpcmxzJTIwaW1hZ2V8ZW58MHx8MHx8fDA%3D"
               alt="Vidhini Soft Solutions"
-              className="w-[320px] sm:w-[380px] h-[380px] sm:h-[420px] object-cover"
+              className="w-[360px] h-[460px] object-cover rounded-2xl"
             />
           </div>
 
-          {/* floating icons */}
-          <div className="ai-float absolute left-6 top-24 bg-white rounded-full p-4 shadow-lg">
-            💻
+          {/* floating info card */}
+          <div className="ai-card absolute left-0 bottom-24 bg-[#dbeee9] rounded-xl p-4 shadow-lg w-56">
+            <p className="text-sm text-gray-600 mb-1">Congrats!</p>
+            <p className="text-2xl font-bold text-black">$12.5</p>
+            <p className="text-xs text-gray-500 mt-1">
+              16 hours ago
+            </p>
           </div>
 
-          <div className="ai-float absolute right-6 top-12 bg-white rounded-full p-4 shadow-lg">
-            📈
-          </div>
-
-          <div className="ai-float absolute right-10 bottom-12 bg-white rounded-full p-4 shadow-lg">
-            ⚙️
+          {/* small accent icon */}
+          <div className="absolute left-40 bottom-48 w-12 h-12 bg-yellow-400 rounded-xl flex items-center justify-center shadow-md">
+            🌵
           </div>
         </div>
 

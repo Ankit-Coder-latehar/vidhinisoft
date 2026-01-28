@@ -1,15 +1,15 @@
 import React from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Facebook, Instagram, Linkedin } from "lucide-react";
 
 const SecondFooter = () => {
   return (
-    <footer className="w-full bg-white px-6 md:px-20 py-16">
+    <footer className="relative w-full bg-gradient-to-b from-white to-gray-50 px-6 md:px-20 py-20">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16">
-        
+
         {/* Left Section */}
         <div>
-          <div className="flex items-center gap-2 mb-6">
-            <div className="w-8 h-8 rounded-full bg-blue-400 flex items-center justify-center font-bold text-white">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-500 flex items-center justify-center font-bold text-white shadow-md">
               VS
             </div>
             <span className="text-2xl font-semibold text-gray-900">
@@ -18,57 +18,69 @@ const SecondFooter = () => {
           </div>
 
           <p className="text-gray-500 leading-relaxed max-w-sm">
-            We're specialists in IT recruitment and we optimize the search
-            processes of companies. We connect Latin American IT talent with
-            companies in the USA or LATAM that need to fill specific positions
-            for projects related to the technology area.
+            We help companies hire elite IT talent by simplifying recruitment
+            and connecting skilled professionals with high-impact tech roles
+            across the USA & LATAM.
           </p>
 
-          <div className="flex gap-4 mt-8 text-gray-500">
-            <div className="w-8 h-8 bg-gray-200 rounded flex items-center justify-center">
-              f
-            </div>
-            <div className="w-8 h-8 bg-gray-200 rounded flex items-center justify-center">
-              ⦿
-            </div>
-            <div className="w-8 h-8 bg-gray-200 rounded flex items-center justify-center">
-              in
-            </div>
+          <div className="flex gap-4 mt-8">
+            {[Facebook, Instagram, Linkedin].map((Icon, i) => (
+              <div
+                key={i}
+                className="w-10 h-10 rounded-xl bg-white border flex items-center justify-center text-gray-500 hover:text-blue-600 hover:shadow-lg hover:-translate-y-1 transition cursor-pointer"
+              >
+                <Icon size={18} />
+              </div>
+            ))}
           </div>
         </div>
 
         {/* Middle Section */}
         <div>
-          <h4 className="text-gray-900 font-semibold mb-6">
-            About Vidhini 
+          <h4 className="text-gray-900 font-semibold mb-6 relative inline-block">
+            Company
+            <span className="absolute left-0 -bottom-2 w-10 h-1 bg-blue-500 rounded-full"></span>
           </h4>
+
           <ul className="space-y-4 text-gray-500">
-            <li className="hover:text-gray-900 cursor-pointer">
-              Services
-            </li>
-            <li className="hover:text-gray-900 cursor-pointer">
-              Technologies
-            </li>
+            {["Services", "Technologies", "Careers", "Contact"].map((item) => (
+              <li
+                key={item}
+                className="hover:text-gray-900 hover:translate-x-2 transition cursor-pointer"
+              >
+                {item}
+              </li>
+            ))}
           </ul>
         </div>
 
         {/* Right Section */}
         <div>
-          <h4 className="text-gray-900 font-semibold mb-6">
-            Follow the Best
+          <h4 className="text-gray-900 font-semibold mb-6 relative inline-block">
+            Stay Connected
+            <span className="absolute left-0 -bottom-2 w-10 h-1 bg-indigo-500 rounded-full"></span>
           </h4>
+
+          <p className="text-gray-500 mb-5">
+            Join our newsletter for hiring insights and tech updates.
+          </p>
 
           <div className="relative max-w-sm">
             <input
               type="email"
-              placeholder="Email Address"
-              className="w-full bg-gray-100 rounded-md px-4 py-3 pr-12 text-gray-700 outline-none focus:ring-2 focus:ring-lime-400"
+              placeholder="Enter your email"
+              className="w-full bg-white border rounded-xl px-4 py-3 pr-14 text-gray-700 outline-none focus:ring-2 focus:ring-blue-400 shadow-sm"
             />
-            <button className="absolute right-3 top-1/2 -translate-y-1/2 text-lime-400">
-              <ArrowRight size={20} />
+            <button className="absolute right-2 top-1/2 -translate-y-1/2 bg-gradient-to-r from-blue-500 to-indigo-500 text-white w-10 h-10 rounded-lg flex items-center justify-center hover:scale-105 transition">
+              <ArrowRight size={18} />
             </button>
           </div>
         </div>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="mt-20 border-t pt-6 text-center text-sm text-gray-400">
+        © {new Date().getFullYear()} Vidhini Soft. All rights reserved.
       </div>
     </footer>
   );

@@ -37,10 +37,10 @@ export default function WorkProcess() {
         {/* HEADER */}
         <div className="text-center mb-14 sm:mb-20">
           <h2 className="wp-heading text-3xl sm:text-4xl font-semibold text-gray-900">
-            Work Process
+            Our Delivery Process
           </h2>
           <p className="wp-subheading mt-4 text-base sm:text-lg text-gray-500 max-w-2xl mx-auto">
-            We simplify access to high-caliber talent: simple, seamless, streamlined.
+            A clear, collaborative approach to transform your ideas into reliable digital products.
           </p>
         </div>
 
@@ -49,27 +49,24 @@ export default function WorkProcess() {
 
           {/* LEFT MOCKUP */}
           <div className="relative wp-mockup">
-            {/* glow */}
             <div className="absolute -inset-6 sm:-inset-10 bg-blue-200 blur-[80px] sm:blur-[120px] rounded-full" />
 
             <div className="relative bg-white rounded-2xl sm:rounded-3xl shadow-xl p-5 sm:p-8">
-              {/* search */}
               <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-8 sm:mb-10">
-                <span className="text-gray-400">🔍</span>
+                <span className="text-gray-400">⚡</span>
                 <div className="flex flex-wrap gap-2">
                   <span className="px-3 py-1 text-xs bg-blue-400 rounded-full">
-                    developer
+                    product
                   </span>
                   <span className="px-3 py-1 text-xs bg-blue-400 rounded-full">
-                    react
+                    ui/ux
                   </span>
                   <span className="px-3 py-1 text-xs bg-blue-400 rounded-full">
-                    angular
+                    engineering
                   </span>
                 </div>
               </div>
 
-              {/* cards */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
                 <div className="wp-card bg-gray-100 rounded-xl h-48 sm:h-56" />
 
@@ -77,25 +74,25 @@ export default function WorkProcess() {
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-full bg-gray-300" />
                     <div>
-                      <p className="font-medium text-sm">Marcos Herrera</p>
+                      <p className="font-medium text-sm">Product Team</p>
                       <p className="text-xs text-gray-500">
-                        Senior fullstack developer
+                        Design & Engineering
                       </p>
                     </div>
                   </div>
                   <div className="flex flex-wrap gap-2 mb-6">
                     <span className="text-xs bg-gray-100 px-2 py-1 rounded">
-                      Angular
+                      UI/UX
                     </span>
                     <span className="text-xs bg-gray-100 px-2 py-1 rounded">
-                      Typescript
+                      Frontend
                     </span>
                     <span className="text-xs bg-gray-100 px-2 py-1 rounded">
-                      Node
+                      Backend
                     </span>
                   </div>
                   <button className="mt-auto w-full bg-gray-800 text-white text-sm py-2 rounded-lg">
-                    Join my team
+                    Start project
                   </button>
                 </div>
 
@@ -110,20 +107,20 @@ export default function WorkProcess() {
 
             {[
               {
-                title: "Conduct a discovery call",
-                desc: "Initiate the process with a collaborative video call between your team and ours.",
+                title: "Understand your goals",
+                desc: "We begin with in-depth discussions to understand your business needs, vision, and success metrics.",
               },
               {
-                title: "Search and selection",
-                desc: "Our team internally scouts and selects the best talent for your position.",
+                title: "Plan the right solution",
+                desc: "Our team defines the architecture, tech stack, and roadmap tailored to your requirements.",
               },
               {
-                title: "Technical and communication evaluations",
-                desc: "Beyond technical tests, we evaluate cultural fit and communication skills.",
+                title: "Build & iterate",
+                desc: "We design, develop, and test in agile cycles, keeping you involved at every milestone.",
               },
               {
-                title: "Presentation and contract execution",
-                desc: "Presenting selected candidates, facilitating interviews, and managing contract execution.",
+                title: "Launch & scale",
+                desc: "After deployment, we help you optimize, scale, and continuously improve the product.",
               },
             ].map((step, i) => (
               <div key={i} className="wp-step flex gap-4 sm:gap-6 items-start">
