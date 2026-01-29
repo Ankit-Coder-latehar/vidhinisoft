@@ -23,7 +23,7 @@ const About = () => {
         <OurProcess/>
         <StatsAchievements/>
         <SecondFooter />
-        <Footer/>
+        {/* <Footer/> */}
     </div>
   )
 }

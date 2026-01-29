@@ -15,7 +15,7 @@ const Services = () => {
         <StaffingSection/>
         <ServicesSection/>
         <SecondFooter/>
-        <Footer/>
+        {/* <Footer/> */}
     </div>
   )
 }

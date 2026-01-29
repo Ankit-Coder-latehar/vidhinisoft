@@ -106,12 +106,11 @@ const ServicesHero = () => {
             </p>
 
             <div className="flex gap-4">
-              <button className="hero-btn px-7 py-3 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition">
-                Explore Services
-              </button>
-              <button className="px-7 py-3 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-100 transition">
+              
+              <a href="/schedule"><button className="px-7 py-3 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-100 transition">
                 Contact Us
               </button>
+              </a>
             </div>
           </div>
 
@@ -120,7 +119,7 @@ const ServicesHero = () => {
             {/* IMAGE */}
             <div className="hero-image relative z-10 bg-white rounded-3xl shadow-2xl overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=900&auto=format&fit=crop&q=60"
+                src="https://m.media-amazon.com/images/G/31/employer-brand/hero-remote.jpg"
                 alt="Software services"
                 className="w-[420px] h-[480px] object-cover"
               />

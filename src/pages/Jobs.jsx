@@ -19,7 +19,7 @@ const Jobs = () => {
         <Testimonials/>
         <CareerCTA/>
         <SecondFooter/>
-        <Footer/>
+        {/* <Footer/> */}
     </div>
   )
 }

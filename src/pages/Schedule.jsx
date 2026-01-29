@@ -16,7 +16,7 @@ const Schedule = () => {
         <ContactSplitSection/>
         <ContactForm/>
         <SecondFooter/>
-        <Footer/>
+        {/* <Footer/> */}
 
     </div>
   )

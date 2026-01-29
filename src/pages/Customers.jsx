@@ -20,7 +20,7 @@ const CustomersPage = () => {
         <OurApproach/>
         <NumbersThatBuildTrust/>
         <SecondFooter/>
-        <Footer/>
+        {/* <Footer/> */}
     </div>
   )
 }

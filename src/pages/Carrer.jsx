@@ -13,7 +13,7 @@ const Carrer = () => {
         <CareersHero/>
         <OpenPositions/>
         <SecondFooter/>
-        <Footer/>
+        {/* <Footer/> */}
     </div>
   )
 }

@@ -23,15 +23,34 @@ const SecondFooter = () => {
             across the USA & LATAM.
           </p>
 
+          {/* Social Links */}
           <div className="flex gap-4 mt-8">
-            {[Facebook, Instagram, Linkedin].map((Icon, i) => (
-              <div
-                key={i}
-                className="w-10 h-10 rounded-xl bg-white border flex items-center justify-center text-gray-500 hover:text-blue-600 hover:shadow-lg hover:-translate-y-1 transition cursor-pointer"
-              >
-                <Icon size={18} />
-              </div>
-            ))}
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-xl bg-white border flex items-center justify-center text-gray-500 hover:text-blue-600 hover:shadow-lg hover:-translate-y-1 transition"
+            >
+              <Facebook size={18} />
+            </a>
+
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-xl bg-white border flex items-center justify-center text-gray-500 hover:text-pink-500 hover:shadow-lg hover:-translate-y-1 transition"
+            >
+              <Instagram size={18} />
+            </a>
+
+            <a
+              href="https://www.linkedin.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-xl bg-white border flex items-center justify-center text-gray-500 hover:text-blue-700 hover:shadow-lg hover:-translate-y-1 transition"
+            >
+              <Linkedin size={18} />
+            </a>
           </div>
         </div>
 
@@ -43,14 +62,26 @@ const SecondFooter = () => {
           </h4>
 
           <ul className="space-y-4 text-gray-500">
-            {["Services", "Technologies", "Careers", "Contact"].map((item) => (
-              <li
-                key={item}
-                className="hover:text-gray-900 hover:translate-x-2 transition cursor-pointer"
-              >
-                {item}
-              </li>
-            ))}
+            <li>
+              <a href="/service" className="hover:text-gray-900 hover:translate-x-2 transition inline-block">
+                Services
+              </a>
+            </li>
+            <li>
+              <a href="/about" className="hover:text-gray-900 hover:translate-x-2 transition inline-block">
+                About us
+              </a>
+            </li>
+            <li>
+              <a href="/career" className="hover:text-gray-900 hover:translate-x-2 transition inline-block">
+                Careers
+              </a>
+            </li>
+            <li>
+              <a href="/schedule" className="hover:text-gray-900 hover:translate-x-2 transition inline-block">
+                Contact
+              </a>
+            </li>
           </ul>
         </div>
 

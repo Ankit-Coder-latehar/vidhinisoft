@@ -16,7 +16,7 @@ const Product = () => {
         <ZewaKeyFeatures/>
         <FeaturesSection/>
         <SecondFooter/>
-        <Footer/>
+        {/* <Footer/> */}
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "./Navbar";
+import { Widget } from "@uploadcare/react-widget";
 
 /* ================= JOB DATA ================= */
 
@@ -152,6 +153,7 @@ const JobDetails = () => {
   const [openForm, setOpenForm] = useState(false);
   const [captcha, setCaptcha] = useState("");
   const [captchaInput, setCaptchaInput] = useState("");
+  const [resumeUrl, setResumeUrl] = useState("");
 
   useEffect(() => {
     setCaptcha(generateCaptcha());
@@ -162,22 +164,17 @@ const JobDetails = () => {
     setCaptchaInput("");
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
+  const handleFormSubmit = (e) => {
     if (captcha !== captchaInput) {
+      e.preventDefault();
       alert("Captcha does not match ❌");
       refreshCaptcha();
-      return;
     }
-
-    alert("Application submitted successfully ✅");
-    setOpenForm(false);
   };
 
   if (!job) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-950 text-white">
+      <div className="min-h-screen flex items-center justify-center">
         Job not found
       </div>
     );
@@ -187,7 +184,7 @@ const JobDetails = () => {
     <>
       <Navbar />
 
-      {/* HERO SECTION */}
+      {/* HERO */}
       <div
         className="w-full h-64 bg-cover bg-center"
         style={{
@@ -197,124 +194,112 @@ const JobDetails = () => {
       />
 
       {/* CONTENT */}
-      <section className="bg-white py-12">
+      <section className="py-12 bg-white">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
-
-          {/* LEFT CONTENT */}
           <div className="md:col-span-2">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
-              {job.title}
-            </h1>
-
+            <h1 className="text-4xl font-bold">{job.title}</h1>
             <p className="text-gray-500 mt-2">
               {job.jobId} · {job.location}
             </p>
 
             <hr className="my-6" />
 
-            <p className="text-gray-700 leading-relaxed">
-              {job.aboutCompany}
-            </p>
+            <p>{job.aboutCompany}</p>
 
-            <h3 className="text-xl font-semibold mt-8 mb-3">
-              Job Description
-            </h3>
+            <h3 className="text-xl font-semibold mt-8">Job Description</h3>
+            <p className="mt-2 whitespace-pre-line">{job.description}</p>
 
-            <p className="text-gray-700 leading-relaxed whitespace-pre-line">
-              {job.description}
-            </p>
-
-            {job.behavioralCompetencies?.length > 0 && (
-              <>
-                <h3 className="text-xl font-semibold mt-8 mb-3">
-                  Behavioral Competencies
-                </h3>
-                <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                  {job.behavioralCompetencies.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
-              </>
-            )}
-
-            {job.skills?.length > 0 && (
-              <>
-                <h3 className="text-xl font-semibold mt-8 mb-3">
-                  Skills Needed
-                </h3>
-                <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                  {job.skills.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
-              </>
-            )}
-
-            {job.qualification?.length > 0 && (
-              <>
-                <h3 className="text-xl font-semibold mt-8 mb-3">
-                  Qualification
-                </h3>
-                <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                  {job.qualification.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
-              </>
-            )}
+            <h3 className="text-xl font-semibold mt-8">Skills</h3>
+            <ul className="list-disc pl-6">
+              {job.skills.map((s, i) => (
+                <li key={i}>{s}</li>
+              ))}
+            </ul>
           </div>
 
-          {/* RIGHT SIDEBAR */}
-          <div className="border rounded-xl p-6 h-fit shadow-sm">
+          {/* SIDEBAR */}
+          <div className="border p-6 rounded-xl h-fit">
             <button
               onClick={() => setOpenForm(true)}
-              className="w-full bg-gray-700 hover:bg-gray-800 transition text-white py-3 rounded-lg font-semibold"
+              className="w-full bg-gray-700 text-white py-3 rounded-lg"
             >
               APPLY
             </button>
-
-            <div className="mt-6 space-y-4 text-sm">
-              <div>
-                <p className="font-semibold text-gray-900">
-                  Service Line / Business Area
-                </p>
-                <p className="text-gray-600">{job.serviceLine}</p>
-              </div>
-
-              <div>
-                <p className="font-semibold text-gray-900">
-                  Country / Region
-                </p>
-                <p className="text-gray-600">{job.country}</p>
-              </div>
-            </div>
           </div>
-
         </div>
       </section>
 
-      {/* APPLY FORM MODAL */}
+      {/* APPLY MODAL */}
       {openForm && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
           <div className="bg-white w-full max-w-md rounded-xl p-6">
-            <h2 className="text-xl font-semibold mb-4">Apply for this job</h2>
+            <h2 className="text-xl font-semibold mb-4">
+              Apply for this job
+            </h2>
 
-            <form onSubmit={handleSubmit} className="space-y-3">
-              <input required className="w-full border p-2 rounded" placeholder="First Name" />
-              <input required className="w-full border p-2 rounded" placeholder="Last Name" />
-              <input required type="email" className="w-full border p-2 rounded" placeholder="Email" />
-              <input required type="tel" className="w-full border p-2 rounded" placeholder="Phone" />
-
+            <form
+              action="https://formspree.io/f/mykjjjbr"
+              method="POST"
+              onSubmit={handleFormSubmit}
+              className="space-y-3"
+            >
               <input
+                name="firstName"
                 required
-                type="file"
-                accept=".pdf,.doc,.docx"
                 className="w-full border p-2 rounded"
+                placeholder="First Name"
               />
 
+              <input
+                name="lastName"
+                required
+                className="w-full border p-2 rounded"
+                placeholder="Last Name"
+              />
+
+              <input
+                name="email"
+                type="email"
+                required
+                className="w-full border p-2 rounded"
+                placeholder="Email"
+              />
+
+              <input
+                name="phone"
+                required
+                className="w-full border p-2 rounded"
+                placeholder="Phone"
+              />
+
+              {/* Uploadcare */}
+              <div className="border rounded p-2">
+                <label className="text-sm font-medium">
+                  Upload Resume
+                </label>
+
+                <Widget
+                  publicKey="0a3edf6835bb621b934f"
+                  clearable
+                  multiple={false}
+                  onChange={(file) => setResumeUrl(file?.cdnUrl)}
+                />
+
+                <input
+                  type="hidden"
+                  name="resume"
+                  value={resumeUrl}
+                />
+              </div>
+
+              {/* CAPTCHA */}
               <div className="flex items-center justify-between bg-gray-100 p-2 rounded">
-                <span className="font-bold tracking-widest">{captcha}</span>
-                <button type="button" onClick={refreshCaptcha}>🔄</button>
+                <span className="font-bold tracking-widest">
+                  {captcha}
+                </span>
+                <button type="button" onClick={refreshCaptcha}>
+                  🔄
+                </button>
               </div>
 
               <input
@@ -332,6 +317,7 @@ const JobDetails = () => {
                 >
                   Submit
                 </button>
+
                 <button
                   type="button"
                   onClick={() => setOpenForm(false)}

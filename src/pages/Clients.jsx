@@ -14,7 +14,7 @@ const Clients = () => {
         <ClientsLogos/>
         <Benefits/>
         <SecondFooter/>
-        <Footer/>
+        {/* <Footer/> */}
     </div>
   )
 }

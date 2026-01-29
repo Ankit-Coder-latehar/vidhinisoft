@@ -97,12 +97,12 @@ export default function AboutHero() {
           </p>
 
           <div className="mt-10 flex gap-4">
-            <button className="px-6 py-3 rounded-xl bg-blue-600 text-white font-medium hover:bg-blue-700 transition">
+           <a href="/career"> <button className="px-6 py-3 rounded-xl bg-blue-600 text-white font-medium hover:bg-blue-700 transition">
               Work With Us
-            </button>
-            <button className="px-6 py-3 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-100 transition">
+            </button></a>
+            <a href="/service"><button className="px-6 py-3 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-100 transition">
               View Services
-            </button>
+            </button></a>
           </div>
         </div>
 

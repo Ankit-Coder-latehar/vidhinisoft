@@ -32,43 +32,43 @@ const ContactHero = () => {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-slate-950"
+      className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-white"
     >
-      {/* Background Glow */}
-      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-3xl" />
-      <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-3xl" />
+      {/* Soft Background Glows */}
+      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl" />
+      <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-3xl" />
 
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         <h1
           ref={headingRef}
-          className="text-4xl md:text-6xl font-extrabold text-white leading-tight"
+          className="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight"
         >
-          Let’s <span className="text-blue-400">Connect</span> & Build Something
+          Let’s <span className="text-blue-600">Connect</span> & Build Something
           Great
         </h1>
 
         <p
           ref={textRef}
-          className="mt-6 text-lg md:text-xl text-slate-300"
+          className="mt-6 text-lg md:text-xl text-slate-600"
         >
           We’d love to hear from you. Whether you have a question, a project idea,
-          or want to explore how we can work together—{" "}
-          <span className="text-white font-medium">
+          or want to explore how we can work together —{" "}
+          <span className="text-slate-900 font-medium">
             Vardhini Software Solutions
           </span>{" "}
           is here to help.
         </p>
 
         <div ref={buttonRef} className="mt-10">
-          <button className="px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold text-lg shadow-lg hover:scale-105 transition-transform">
+          <button className="px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold text-lg shadow-lg hover:scale-105 transition-transform">
             Get in Touch
           </button>
         </div>
       </div>
 
-      {/* Decorative Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:60px_60px] opacity-30" />
+      {/* Light Grid Background */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-[size:64px_64px] opacity-40" />
     </section>
   );
 };

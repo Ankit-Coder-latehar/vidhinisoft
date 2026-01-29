@@ -44,13 +44,9 @@ const Hero = () => {
             2026 and beyond.
           </p>
 
-          <div className="mt-10 flex w-full max-w-lg items-center bg-white shadow-md rounded-lg overflow-hidden">
-            <input
-              type="text"
-              placeholder="Enter your website"
-              className="flex-1 px-5 py-4 text-slate-600 outline-none"
-            />
-            <button className="bg-[#0f172a] text-white px-8 py-4 font-semibold hover:bg-[#020617] transition">
+          {/* CTA Button Only */}
+          <div className="mt-10">
+            <button className="bg-[#0f172a] text-white px-10 py-4 font-semibold rounded-lg shadow-md hover:bg-[#020617] hover:scale-[1.02] transition">
               Get My Free Proposal
             </button>
           </div>
@@ -102,7 +98,9 @@ const Hero = () => {
 
             {/* Center */}
             <div className="absolute w-56 h-56 bg-white rounded-full shadow-xl flex flex-col items-center justify-center text-center z-10">
-              <span className="text-sm font-semibold text-slate-500">WebFX</span>
+              <span className="text-sm font-semibold text-slate-500">
+                WebFX
+              </span>
               <h3 className="text-lg font-bold text-slate-900">
                 Revenue Engine
               </h3>
