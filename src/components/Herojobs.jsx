@@ -75,13 +75,13 @@ const HeroJobs = () => {
           </p>
 
           <div className="mt-8 flex items-center gap-4">
-            <button className="px-7 py-3.5 rounded-full bg-blue-600 text-white font-semibold text-sm hover:bg-blue-700 transition shadow-lg shadow-blue-200">
+            <a href="/career"><button className="px-7 py-3.5 rounded-full bg-blue-600 text-white font-semibold text-sm hover:bg-blue-700 transition shadow-lg shadow-blue-200">
               Apply Now
-            </button>
+            </button></a>
 
-            <button className="px-7 py-3.5 rounded-full border border-blue-300 text-blue-700 font-semibold text-sm hover:bg-blue-50 transition">
+            <a href="/career"><button className="px-7 py-3.5 rounded-full border border-blue-300 text-blue-700 font-semibold text-sm hover:bg-blue-50 transition">
               View Open Roles
-            </button>
+            </button></a>
           </div>
         </div>
 
