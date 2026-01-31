@@ -9,48 +9,38 @@ const HeroJobs = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 75%",
-        },
-        defaults: { ease: "power3.out" },
-      });
-
-      tl.from(".jobs-left > *", {
-        y: 40,
-        opacity: 0,
-        stagger: 0.15,
-        duration: 0.8,
-      })
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 70%",
+          },
+          defaults: { ease: "power3.out" },
+        })
+        .from(".jobs-left > *", {
+          y: 30,
+          opacity: 0,
+          stagger: 0.15,
+          duration: 0.7,
+        })
         .from(
           ".jobs-image",
           {
-            y: 60,
+            y: 50,
             opacity: 0,
-            stagger: 0.2,
-            duration: 0.8,
-          },
-          "-=0.5"
-        )
-        .from(
-          ".jobs-dots",
-          {
-            opacity: 0,
-            scale: 0.6,
-            duration: 0.5,
-          },
-          "-=0.6"
-        )
-        .from(
-          ".jobs-blob",
-          {
-            scale: 0,
-            opacity: 0,
+            scale: 0.95,
             stagger: 0.15,
-            duration: 0.4,
+            duration: 0.7,
           },
-          "-=0.5"
+          "-=0.4"
+        )
+        .from(
+          ".jobs-grid-bg",
+          {
+            opacity: 0,
+            duration: 0.6,
+          },
+          "-=0.8"
         );
     }, sectionRef);
 
@@ -58,75 +48,70 @@ const HeroJobs = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-white">
-      <div className="max-w-7xl mx-auto px-6 py-28 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-100"
+    >
+      {/* GRID BACKGROUND */}
+      <div className="jobs-grid-bg absolute inset-0 bg-[linear-gradient(to_right,rgba(59,130,246,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(59,130,246,0.08)_1px,transparent_1px)] bg-[size:60px_60px]" />
+
+      <div className="relative max-w-7xl mx-auto px-6 py-28 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
         {/* LEFT CONTENT */}
-        <div className="jobs-left">
-          <h1 className="text-[42px] leading-tight font-bold text-gray-900 max-w-xl">
-            Find full-time remote software jobs <br />
-            at leading companies around the World
+        <div className="jobs-left relative z-10">
+          <span className="inline-block mb-4 px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-xs font-semibold tracking-widest">
+            CAREERS AT VIDHINISOFT
+          </span>
+
+          <h1 className="text-3xl sm:text-4xl xl:text-5xl font-extrabold text-gray-900 leading-tight max-w-xl">
+            Build your career with <br />
+            <span className="text-blue-600">remote tech jobs</span> worldwide
           </h1>
 
-          <p className="mt-6 text-gray-500 text-lg max-w-lg">
-            Join VidhiniSoft and get full-time remote software jobs with higher
-            salaries and professional growth.
+          <p className="mt-5 text-gray-600 text-sm sm:text-base max-w-lg leading-relaxed">
+            Discover full-time remote software roles with top global companies.
+            Work on meaningful products, earn competitively, and grow faster
+            with VidhiniSoft.
           </p>
 
-          <button className="mt-10 bg-blue-400 hover:bg-lime-500 transition px-8 py-4 rounded-md font-semibold text-black">
-            Apply now!
-          </button>
+          <div className="mt-8 flex items-center gap-4">
+            <button className="px-7 py-3.5 rounded-full bg-blue-600 text-white font-semibold text-sm hover:bg-blue-700 transition shadow-lg shadow-blue-200">
+              Apply Now
+            </button>
+
+            <button className="px-7 py-3.5 rounded-full border border-blue-300 text-blue-700 font-semibold text-sm hover:bg-blue-50 transition">
+              View Open Roles
+            </button>
+          </div>
         </div>
 
         {/* RIGHT IMAGE GRID */}
-        <div className="relative grid grid-cols-2 gap-10">
+        <div className="relative grid grid-cols-2 gap-8 z-10">
 
-          {/* Decorative dots */}
-          <div className="jobs-dots absolute -left-6 top-10 grid grid-cols-4 gap-2 opacity-30">
-            {Array.from({ length: 12 }).map((_, i) => (
-              <div key={i} className="w-2 h-2 bg-gray-300 rounded-full" />
-            ))}
-          </div>
+          {/* IMAGE CARD */}
+          {[
+            "https://images.unsplash.com/photo-1600275669439-14e40452d20b?w=600",
+            "https://plus.unsplash.com/premium_photo-1666299430525-6726a55955d9?w=600",
+            "https://images.unsplash.com/photo-1590650516494-0c8e4a4dd67e?w=600",
+            "https://plus.unsplash.com/premium_photo-1682608388268-d2fe94141e13?w=600",
+          ].map((img, i) => (
+            <div
+              key={i}
+              className={`jobs-image rounded-2xl overflow-hidden shadow-xl bg-white ${
+                i % 2 !== 0 ? "translate-y-8" : ""
+              }`}
+            >
+              <img
+                src={img}
+                alt=""
+                className="w-full h-[240px] object-cover"
+              />
+            </div>
+          ))}
 
-          {/* Image 1 */}
-          <div className="jobs-image rounded-t-full overflow-hidden">
-            <img
-              src="https://plus.unsplash.com/premium_photo-1666299430525-6726a55955d9?w=600&auto=format&fit=crop&q=60"
-              alt=""
-              className="w-full h-[280px] object-cover"
-            />
-          </div>
-
-          {/* Image 2 */}
-          <div className="jobs-image rounded-t-full overflow-hidden translate-y-10">
-            <img
-              src="https://images.unsplash.com/photo-1600275669439-14e40452d20b?w=600&auto=format&fit=crop&q=60"
-              alt=""
-              className="w-full h-[280px] object-cover"
-            />
-          </div>
-
-          {/* Image 3 */}
-          <div className="jobs-image rounded-t-full overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1590650516494-0c8e4a4dd67e?w=600&auto=format&fit=crop&q=60"
-              alt=""
-              className="w-full h-[280px] object-cover"
-            />
-          </div>
-
-          {/* Image 4 */}
-          <div className="jobs-image rounded-t-full overflow-hidden translate-y-10">
-            <img
-              src="https://plus.unsplash.com/premium_photo-1682608388268-d2fe94141e13?w=600&auto=format&fit=crop&q=60"
-              alt=""
-              className="w-full h-[280px] object-cover"
-            />
-          </div>
-
-          {/* Background blobs */}
-          <div className="jobs-blob absolute right-0 top-16 w-28 h-28 bg-blue-400 rounded-2xl -z-10" />
-          <div className="jobs-blob absolute left-6 bottom-10 w-24 h-24 bg-blue-400 rounded-2xl -z-10" />
+          {/* FLOATING ACCENTS */}
+          <div className="absolute -right-6 top-16 w-24 h-24 bg-blue-400/20 rounded-2xl blur-xl -z-10" />
+          <div className="absolute left-6 bottom-10 w-28 h-28 bg-blue-300/20 rounded-full blur-xl -z-10" />
         </div>
       </div>
     </section>

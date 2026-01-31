@@ -3,37 +3,37 @@ import React, { useState } from "react";
 const testimonials = [
   {
     name: "Rahul Sharma",
-    role: "Founder, Growthify",
+    role: "Founder, Vidhini Soft",
     quote:
       "Their structured process and execution helped us scale faster than expected. Extremely professional team.",
   },
   {
     name: "Ananya Verma",
-    role: "Marketing Head, BrandNest",
+    role: "Marketing Head, Vidhini Soft",
     quote:
       "Clear communication, strong strategy, and measurable outcomes. Highly recommended for SaaS brands.",
   },
   {
     name: "Amit Patel",
-    role: "CTO, TechNova",
+    role: "CTO, Vidhini Soft",
     quote:
       "They delivered exactly what they promised. The workflow and timelines were very well managed.",
   },
   {
     name: "Kunal Mehta",
-    role: "Co-Founder, AppSphere",
+    role: "Co-Founder, Vidhini Soft",
     quote:
       "One of the best digital teams we’ve worked with. Their insights genuinely improved our conversions.",
   },
   {
     name: "Sneha Kapoor",
-    role: "Product Lead, Cloudify",
+    role: "Product Lead, Vidhini Soft",
     quote:
       "From design to delivery, everything felt premium and well thought out. Great experience overall.",
   },
   {
     name: "Rohit Jain",
-    role: "CEO, MarketLoop",
+    role: "CEO, Vidhini Soft",
     quote:
       "A reliable long-term partner. Their delivery model is efficient and scalable.",
   },

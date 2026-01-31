@@ -108,8 +108,8 @@ const RevenueComparison = () => {
           </h3>
 
           <p className="mt-3 text-slate-600 max-w-sm mx-auto">
-            WebFX connects your data through{" "}
-            <strong>RevenueCloudFX</strong> to make revenue-backed marketing
+            Vidhini Soft connects your data through{" "}
+            <strong>Revenue Vidhini Soft</strong> to make revenue-backed marketing
             decisions that reduce cost per lead and maximize ROI.
           </p>
         </div>
