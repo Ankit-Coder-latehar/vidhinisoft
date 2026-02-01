@@ -1,130 +1,107 @@
-import React, { useState } from "react";
-import { Quote } from "lucide-react";
+import { Megaphone, Code2, BarChart3, Share2 } from "lucide-react";
 
-/* ✅ DATA MUST BE DEFINED */
-const testimonials = [
+const services = [
   {
-    name: "Rahul Sharma",
-    role: "Founder, Vidhini Soft",
-    quote:
-      "Vidhini Soft brought structure to our product vision. Their software architecture helped us scale faster with solid performance.",
+    icon: <Megaphone size={20} />,
+    title: "Digital Advertising Agency",
+    desc: "Transform your brand’s online presence with our cutting-edge digital advertising solutions. Our expert team creates and manages targeted ad campaigns to maximize reach, drive conversions, and achieve measurable results.",
   },
   {
-    name: "Ananya Verma",
-    role: "Marketing Head, Vidhini Soft",
-    quote:
-      "From dashboards to automation, every solution was built with clear business outcomes in mind.",
+    icon: <Code2 size={20} />,
+    title: "Web Development Agency",
+    desc: "Build a powerful online presence with our innovative web development services. We design and develop responsive, user-friendly websites that are optimized for performance and tailored to meet your business needs.",
+    highlight: true,
   },
   {
-    name: "Amit Patel",
-    role: "CTO, Vidhini Soft",
-    quote:
-      "Clean code, scalable systems, and predictable delivery. Collaboration was smooth and reliable.",
+    icon: <BarChart3 size={20} />,
+    title: "Digital Analyst Agency",
+    desc: "Unlock valuable insights with our comprehensive digital analysis services. Our skilled analysts provide in-depth reports and actionable data to help you make informed decisions, optimize strategies, and drive business growth.",
   },
   {
-    name: "Kunal Mehta",
-    role: "Co-Founder, Vidhini Soft",
-    quote:
-      "They didn’t just build features — they solved real problems with thoughtful software design.",
-  },
-  {
-    name: "Sneha Kapoor",
-    role: "Product Lead, Vidhini Soft",
-    quote:
-      "From UX to backend logic, everything felt cohesive and enterprise-ready.",
-  },
-  {
-    name: "Rohit Jain",
-    role: "CEO, Vidhini Soft",
-    quote:
-      "A dependable long-term technology partner with a very efficient development process.",
+    icon: <Share2 size={20} />,
+    title: "Social Media Agency",
+    desc: "Engage and grow your audience with our strategic social media management services. We craft compelling content, manage campaigns, and analyze performance to enhance your brand’s visibility and foster meaningful connections.",
   },
 ];
 
-const ITEMS_PER_SLIDE = 3;
-
-const Testimonials = () => {
-  const [current, setCurrent] = useState(0);
-  const totalSlides = Math.ceil(testimonials.length / ITEMS_PER_SLIDE);
-
+export default function Testimonials() {
   return (
-    <section className="relative py-24 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="relative bg-gradient-to-b from-[#fff7ef] to-white py-24">
+      <div className="max-w-7xl mx-auto px-6 text-center">
+        {/* Heading */}
+        <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+          Empowering Your Business with Proven
+          <br /> Digital Marketing Solutions
+        </h1>
 
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900">
-            What Our Clients Say
-          </h2>
-          <p className="mt-4 text-lg text-slate-600">
-            Trusted by teams building scalable software with Vidhini Soft
-          </p>
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-600 text-sm font-medium px-4 py-1 rounded-full mt-4">
+         Vidhini Soft 
         </div>
 
-        {/* Slider */}
-        <div className="mt-20 overflow-hidden">
-          <div
-            className="flex transition-transform duration-700 ease-in-out"
-            style={{ transform: `translateX(-${current * 100}%)` }}
-          >
-            {Array.from({ length: totalSlides }).map((_, slideIndex) => (
+        {/* Subtitle */}
+        <p className="mt-6 max-w-3xl mx-auto text-gray-500">
+          At <span className="text-orange-500 font-medium">Vidhini Soft</span>, we combine innovation with
+          data-driven strategies to deliver impactful digital marketing solutions
+          that drive real results. Provenly helps many top brands succeed since 2014.
+        </p>
+
+        {/* Cards */}
+        <div className="mt-16 grid lg:grid-cols-4 gap-6 text-left">
+          {services.map((item, i) => (
+            <div
+              key={i}
+              className={`group relative rounded-2xl p-6 transition-all duration-300
+              ${
+                item.highlight
+                  ? "bg-orange-400 text-white shadow-xl"
+                  : "bg-white shadow-md hover:bg-blue-600 hover:text-white"
+              }`}
+            >
+              {/* Icon */}
               <div
-                key={slideIndex}
-                className="min-w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                className={`w-10 h-10 rounded-full flex items-center justify-center mb-4
+                ${
+                  item.highlight
+                    ? "bg-white text-orange-500"
+                    : "bg-orange-100 text-orange-500 group-hover:bg-white group-hover:text-blue-600"
+                }`}
               >
-                {testimonials
-                  .slice(
-                    slideIndex * ITEMS_PER_SLIDE,
-                    slideIndex * ITEMS_PER_SLIDE + ITEMS_PER_SLIDE
-                  )
-                  .map((item, index) => (
-                    <div
-                      key={index}
-                      className="relative bg-white border border-slate-200 rounded-2xl p-8 shadow-sm hover:shadow-xl transition"
-                    >
-                      <div className="absolute -top-6 left-6 h-12 w-12 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-lg">
-                        <Quote size={20} />
-                      </div>
-
-                      <p className="mt-6 text-slate-700 leading-relaxed">
-                        “{item.quote}”
-                      </p>
-
-                      <div className="mt-6 pt-4 border-t">
-                        <h4 className="font-semibold text-slate-900">
-                          {item.name}
-                        </h4>
-                        <p className="text-sm text-slate-500">{item.role}</p>
-                      </div>
-                    </div>
-                  ))}
+                {item.icon}
               </div>
-            ))}
-          </div>
-        </div>
 
-        {/* Controls */}
-        <div className="mt-12 flex justify-center gap-4">
-          <button
-            onClick={() =>
-              setCurrent((prev) =>
-                prev === 0 ? totalSlides - 1 : prev - 1
-              )
-            }
-            className="px-5 py-2 rounded-lg border bg-white hover:bg-slate-100"
-          >
-            ← Prev
-          </button>
-          <button
-            onClick={() => setCurrent((prev) => (prev + 1) % totalSlides)}
-            className="px-5 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700"
-          >
-            Next →
-          </button>
+              {/* Title */}
+              <h3 className="text-lg font-semibold mb-3">
+                {item.title}
+              </h3>
+
+              {/* Description */}
+              <p
+                className={`text-sm leading-relaxed
+                ${
+                  item.highlight
+                    ? "text-orange-100"
+                    : "text-gray-500 group-hover:text-blue-100"
+                }`}
+              >
+                {item.desc}
+              </p>
+
+              {/* Button */}
+              <button
+                className={`mt-6 text-sm font-medium px-4 py-2 rounded-full
+                ${
+                  item.highlight
+                    ? "bg-white text-orange-500"
+                    : "bg-orange-100 text-orange-500 group-hover:bg-white group-hover:text-blue-600"
+                }`}
+              >
+                Read More
+              </button>
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
-};
-
-export default Testimonials;
+}

@@ -17,13 +17,14 @@ import OurStoryHero from '../components/OurStory'
 import HowWeBuild from '../components/HowWeBuild'
 import HowWeDeliver from '../components/HowWeDeliver'
 import OurIdeas from '../components/OurIdeas'
+import DigitalMarketingHero from '../components/HeroSlider'
 
 const Home = () => {
   return (
     <div className="bg-black min-h-screen w-full rounded-md">
       <Navbar />
       <Hero />
-      <LogosSection />
+      <DigitalMarketingHero/>
       <RevenueComparison/>
       <OurStoryHero/>
       <HowWeBuild/>
